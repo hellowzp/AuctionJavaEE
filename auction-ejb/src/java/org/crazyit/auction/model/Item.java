@@ -1,5 +1,6 @@
 package org.crazyit.auction.model;
 
+import java.io.Serializable;
 import java.util.*;
 import javax.persistence.*;
 /**
@@ -14,7 +15,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="item")
-public class Item
+public class Item implements Serializable
 {
 	//标识属性
 	@Id
@@ -80,7 +81,7 @@ public class Item
 	  因此不能增加@JoinTable和@JoinColumn修饰*/
 	@OneToMany(cascade=CascadeType.ALL , mappedBy="bidItem"
 		, targetEntity=Bid.class)
-	private Set<Bid> bids = new HashSet<Bid>();
+	private Set<Bid> bids = new HashSet<>();
 
 	//无参数的构造器
 	public Item()
