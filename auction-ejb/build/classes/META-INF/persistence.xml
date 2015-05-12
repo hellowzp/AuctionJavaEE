@@ -2,7 +2,8 @@
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence   http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
   <!-- 在应用服务器中使用JTA全局事务 -->
   <persistence-unit name="auctionUnit" transaction-type="JTA">
-    <jta-data-source>java:/auction</jta-data-source>
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <jta-data-source>java/auction</jta-data-source>
     <!-- 列出该应用需要访问的所有的Entity类,
     也可以用 <mapping-file> 或<jar-file>元素来定义 -->
     <class>org.crazyit.auction.model.AuctionUser</class>
@@ -18,6 +19,7 @@
       <property name="hibernate.format_sql" value="true"/>
       <!-- 设置是否根据要求自动建表 -->
       <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

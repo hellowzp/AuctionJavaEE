@@ -1,5 +1,6 @@
 package org.crazyit.auction.model;
 
+import java.io.Serializable;
 import java.util.*;
 import javax.persistence.*;
 /**
@@ -14,7 +15,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="auction_user")
-public class AuctionUser
+public class AuctionUser implements Serializable
 {
 	//±Í ∂ Ù–‘
 	@Id
