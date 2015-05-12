@@ -2,7 +2,6 @@ package org.crazyit.auction.eao.impl;
 
 import java.util.*;
 import javax.persistence.*;
-import javax.annotation.*;
 
 import org.crazyit.auction.eao.Eao;
 /**
@@ -24,9 +23,10 @@ public abstract class CrazyItEao
 	 * 查找实体
 	 * @param <T> 动态传入实体类
 	 * @param entityClass 实体类
-	 * @param pk 主键
+         * @param primaryKey 主键
 	 * @return 根据指定主键返回的实体
 	 */
+        @Override
 	public <T> T get(Class <T> entityClass, Object primaryKey)
 	{
 		T obj = em.find(entityClass, primaryKey);
@@ -36,6 +36,7 @@ public abstract class CrazyItEao
 	 * 保存实体
 	 * @param entity 需要保存的实体
 	 */
+        @Override
 	public void save(Object entity)
 	{
 		em.persist(entity);
@@ -44,6 +45,7 @@ public abstract class CrazyItEao
 	 * 更新实体
 	 * @param entity 需要保存的实体
 	 */
+        @Override
 	public void update(Object entity)
 	{
 		em.merge(entity);
@@ -51,13 +53,15 @@ public abstract class CrazyItEao
 	/**
 	 * 删除实体
 	 * @param entityClass 需要删除实体类
-	 * @param pk 需要删除的实体主键
+	 * @param primaryKey 需要删除的实体主键
 	 */
+        @Override
 	public void delete(Class entityClass, Object primaryKey)
 	{
 		em.remove(em.getReference(entityClass, primaryKey));
 	}
 	
+        @Override
 	public <T> List<T> getResultList(Class<T> entityClass 
 		, String whereJpql 
 		, LinkedHashMap<String, String> orderBy
@@ -76,6 +80,8 @@ public abstract class CrazyItEao
 		//返回结果集
 		return (List<T>)query.getResultList();
 	}
+        
+        @Override
 	public <T> List<T> getResultList(Class<T> entityClass 
 		, String whereJpql 
 		, int firstResult 
@@ -106,7 +112,7 @@ public abstract class CrazyItEao
 	private static String buildOrderby(LinkedHashMap<String , String>
 		 orderby)
 	{
-		StringBuffer out = new StringBuffer("");
+		StringBuilder out = new StringBuilder();
 		if(orderby != null && orderby.size() > 0)
 		{
 			//添加order by 子句
@@ -115,8 +121,7 @@ public abstract class CrazyItEao
 			//每个key-value对生成一个排序条件
 			for(String key : orderby.keySet())
 			{
-				out.append("o." + key + " " + orderby.get(key));
-				out.append(",");
+			out.append("o.").append(key).append(" ").append(orderby.get(key)).append(",");
 			}
 			out.deleteCharAt(out.length()-1);
 		}

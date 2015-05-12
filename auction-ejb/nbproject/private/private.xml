@@ -6,6 +6,8 @@
             <file>file:/D:/my_documents/engineering_files/NetBeans/ClassicalJavaEEApplicationInPractice/15/Auction_NetBeans/auction-ejb/src/conf/persistence.xml</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/ClassicalJavaEEApplicationInPractice/15/Auction_NetBeans/auction-ejb/src/java/org/crazyit/auction/eao/AuctionUserEao.java</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/ClassicalJavaEEApplicationInPractice/15/Auction_NetBeans/auction-ejb/src/java/org/crazyit/auction/eao/Eao.java</file>
+            <file>file:/D:/my_documents/engineering_files/NetBeans/ClassicalJavaEEApplicationInPractice/15/Auction_NetBeans/auction-ejb/setup/glassfish_datasource.xml</file>
+            <file>file:/D:/my_documents/engineering_files/NetBeans/ClassicalJavaEEApplicationInPractice/15/Auction_NetBeans/auction-ejb/src/java/org/crazyit/auction/eao/impl/CrazyItEao.java</file>
         </group>
     </open-files>
 </project-private>
