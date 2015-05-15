@@ -10,7 +10,16 @@ import javax.persistence.*;
 
 /**
  * Description:
+<<<<<<< HEAD:auction-ejb/src/java/domain/Item.java
  * @author   Wang 
+=======
+ * <br/>网站: <a href="http://www.crazyit.org">疯狂Java联盟</a> 
+ * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
+ * <br/>This program is protected by copyright laws.
+ * <br/>Program Name:
+ * <br/>Date:
+ * @author  Yeeku.H.Lee kongyeeku@163.com
+>>>>>>> 70ef829419c0248b9edbd078405b6d0237350bff:auction-ejb/src/java/org/crazyit/auction/model/Item.java
  * @version  1.0
  */
 
@@ -18,10 +27,15 @@ import javax.persistence.*;
 @Table(name="item")
 public class Item
 {
+<<<<<<< HEAD:auction-ejb/src/java/domain/Item.java
+=======
+	//标识属性
+>>>>>>> 70ef829419c0248b9edbd078405b6d0237350bff:auction-ejb/src/java/org/crazyit/auction/model/Item.java
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="item_id")
 	private Integer id;
+<<<<<<< HEAD:auction-ejb/src/java/domain/Item.java
 	
 	@Column(name="item_remark", length=255, nullable=false)
 	private String itemRemark;
@@ -56,6 +70,53 @@ public class Item
 	private Kind kind;
 
         @ManyToOne(fetch=FetchType.EAGER, targetEntity=AuctionUser.class, cascade=CascadeType.ALL)
+=======
+	//物品Remark
+	@Column(name="item_remark" , length=255
+		, nullable=false)
+	private String itemRemark;
+	//物品名称
+	@Column(name="item_name" , length=255
+		, nullable=false)
+	private String itemName;
+	//物品描述
+	@Column(name="item_desc" , length=255
+		, nullable=false)
+	private String itemDesc;
+	//物品添加时间
+	@Column(name="addtime"
+		, nullable=false)
+	@Temporal(TemporalType.DATE)
+	private Date addtime;
+	//物品结束拍卖时间
+	@Column(name="endtime"
+		, nullable=false)
+	@Temporal(TemporalType.DATE)
+	private Date endtime;
+	//物品的起拍价
+	@Column(name="init_price"
+		, nullable=false)
+	private double initPrice;
+	//物品的最高价
+	@Column(name="max_price"
+		, nullable=false)
+	private double maxPrice;
+	//该物品的所有者
+	@ManyToOne(fetch=FetchType.EAGER
+		,targetEntity=AuctionUser.class , cascade=CascadeType.ALL)
+	/* 使用@JoinColumn来配置外键列的信息 */
+	@JoinColumn(name="owner_id", nullable=false)
+	private AuctionUser owner;
+	//该物品所属的种类
+	@ManyToOne(fetch=FetchType.EAGER
+		,targetEntity=Kind.class , cascade=CascadeType.ALL)
+	/* 使用@JoinColumn来配置外键列的信息 */
+	@JoinColumn(name="kind_id", nullable=false)
+	private Kind kind;
+	//该物品的赢取者
+	@ManyToOne(fetch=FetchType.EAGER
+		,targetEntity=AuctionUser.class , cascade=CascadeType.ALL)
+>>>>>>> 70ef829419c0248b9edbd078405b6d0237350bff:auction-ejb/src/java/org/crazyit/auction/model/Item.java
 	/* 使用@JoinColumn来配置外键列的信息 */
 	@JoinColumn(name="winer_id", nullable=true)
 	private AuctionUser winer;
