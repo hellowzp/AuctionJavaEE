@@ -6,7 +6,8 @@
             <name>auction-ejb</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <included-library dirs="200">file.reference.log4j-1.2.13.jar</included-library>
-            <included-library dirs="200">libs.hibernate4-persistence.classpath</included-library>
+            <included-library dirs="200">libs.MySQLDriver.classpath</included-library>
+            <included-library dirs="200">libs.eclipselink.classpath</included-library>
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>

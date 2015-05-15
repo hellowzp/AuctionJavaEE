@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
 	<listener>
-		<listener-class>org.crazyit.auction.schedule.ScheduleListener</listener-class>
+		<listener-class>schedule.ScheduleListener</listener-class>
 	</listener>
 
 	<!-- 配置JSF程序状态的保存位置 -->
@@ -34,7 +34,7 @@
 	<!-- 配置图形验证码Servlet -->
 	<servlet>
 		<servlet-name>img</servlet-name>
-		<servlet-class>org.crazyit.auction.web.AuthImg</servlet-class>
+		<servlet-class>web.AuthImg</servlet-class>
 	</servlet>
 	<!-- 为图形验证码Servlet指定URL -->
 	<servlet-mapping>

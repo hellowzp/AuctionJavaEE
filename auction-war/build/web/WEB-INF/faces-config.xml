@@ -11,7 +11,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>viewSuccess</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.ViewSuAction</managed-bean-class>
+		<managed-bean-class>jsf.ViewSuAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -20,7 +20,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>viewBid</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.ViewBidAction</managed-bean-class>
+		<managed-bean-class>jsf.ViewBidAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -29,7 +29,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>viewFail</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.ViewFailAction</managed-bean-class>
+		<managed-bean-class>jsf.ViewFailAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -38,7 +38,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>mgrKind</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.MgrKindAction</managed-bean-class>
+		<managed-bean-class>jsf.MgrKindAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -47,7 +47,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>addKind</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.AddKindAction</managed-bean-class>
+		<managed-bean-class>jsf.AddKindAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -56,7 +56,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>viewItem</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.ViewItemAction</managed-bean-class>
+		<managed-bean-class>jsf.ViewItemAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -65,7 +65,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>viewDetail</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.ViewDetailAction</managed-bean-class>
+		<managed-bean-class>jsf.ViewDetailAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -74,7 +74,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>mgrItem</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.MgrItemAction</managed-bean-class>
+		<managed-bean-class>jsf.MgrItemAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -83,7 +83,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>loginPro</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.LoginAction</managed-bean-class>
+		<managed-bean-class>jsf.LoginAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -92,7 +92,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>addBid</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.AddBidAction</managed-bean-class>
+		<managed-bean-class>jsf.AddBidAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -101,7 +101,7 @@
 		<!-- 设置托管Bean的名字 -->
 		<managed-bean-name>addItem</managed-bean-name>
 		<!-- 设置托管Bean的实现类 -->
-		<managed-bean-class>org.crazyit.auction.jsf.AddItemAction</managed-bean-class>
+		<managed-bean-class>jsf.AddItemAction</managed-bean-class>
 		<!-- 设置托管Bean实例的有效范围 -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
@@ -164,6 +164,6 @@
 	</navigation-rule>
 	<lifecycle>
 		<!-- 配置生命周期事件监听器 -->
-		<phase-listener>org.crazyit.auction.jsf.listener.LoggedInCheck</phase-listener>  
+		<phase-listener>jsf.listener.LoggedInCheck</phase-listener>  
 	</lifecycle>
 </faces-config>

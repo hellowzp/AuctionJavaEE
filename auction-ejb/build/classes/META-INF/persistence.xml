@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence   http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
-  <!-- �ㄥ��ㄦ���″�ㄤ腑浣跨��JTA�ㄥ�浜��� -->
-  <persistence-unit name="auctionUnit" transaction-type="JTA">
-    <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <jta-data-source>java/auction</jta-data-source>
-    <!-- ���鸿�ュ��ㄩ��瑕�璁块����������Entity绫�,
-    涔���浠ョ�� <mapping-file> ��<jar-file>��绱��ュ��涔� -->
-    <class>org.crazyit.auction.model.AuctionUser</class>
-    <class>org.crazyit.auction.model.Item</class>
-    <class>org.crazyit.auction.model.Bid</class>
-    <class>org.crazyit.auction.model.Kind</class>
-    <class>org.crazyit.auction.model.State</class>
-    <properties>
-      <!-- ��瀹�杩��ユ�版��搴����硅� -->
-      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
-      <property name="hibernate.show_sql" value="true"/>
-      <!-- 璁剧疆�����煎���SQL璇��� -->
-      <property name="hibernate.format_sql" value="true"/>
-      <!-- 璁剧疆�����规��瑕�姹����ㄥ缓琛� -->
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-    </properties>
-  </persistence-unit>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  
+    <persistence-unit name="auction-ejbPU" transaction-type="JTA">
+        <jta-data-source>java/auction</jta-data-source>
+        <class>domain.Bid</class>
+        <class>domain.Kind</class>
+        <class>domain.State</class>
+        <class>domain.Item</class>
+        <class>domain.AuctionUser</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+          <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+        </properties>
+    </persistence-unit>
+  
 </persistence>
