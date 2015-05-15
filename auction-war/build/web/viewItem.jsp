@@ -1,5 +1,5 @@
 <%--
-ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
 author  yeeku.H.lee kongyeeku@163.com
 version  1.0
 Copyright (C), 2001-2010, yeeku.H.Lee
@@ -16,7 +16,7 @@ Date:
 <f:view>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>ä¯ÀÀÅÄÂôÖĞµÄÎïÆ·</title>
+<title>æµè§ˆæ‹å–ä¸­çš„ç‰©å“</title>
 </head>
 <body>
 <table width="780" align="center" cellspacing="0"
@@ -24,47 +24,47 @@ Date:
 <tr>
 <td>
 <div align="center">
-<h3>µ±Ç°ÖÖÀàÊÇ£º<h:outputText value="#{viewItem.kind}"/></h3>
+<h3>å½“å‰ç§ç±»æ˜¯ï¼š<h:outputText value="#{viewItem.kind}"/></h3>
 <h:dataTable width="80%" border="1"
 	cellpadding="0"
 	cellspacing="1"
 	style="border:1px solid black"
 	value="#{viewItem.items}" var="item"
 	rowClasses="odd,even">
-	<!-- ¶¨ÒåµÚÒ»ÁĞ -->
+	<!-- å®šä¹‰ç¬¬ä¸€åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÎïÆ·Ãû"/>
+			<h:outputText value="ç‰©å“å"/>
 		</f:facet>
 		<h:outputLink value="viewDetail.jsp?itemId=#{item.id}">
 		<h:outputText value="#{item.itemName}"/>
 		</h:outputLink>
 	</h:column>
-	<!-- ¶¨ÒåµÚ¶şÁĞ -->
+	<!-- å®šä¹‰ç¬¬äºŒåˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÆğÅÄÊ±¼ä"/>
+			<h:outputText value="èµ·æ‹æ—¶é—´"/>
 		</f:facet>
 		<h:outputText value="#{item.addtime}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚÈıÁĞ -->
+	<!-- å®šä¹‰ç¬¬ä¸‰åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="×î¸ß¼Û¸ñ"/>
+			<h:outputText value="æœ€é«˜ä»·æ ¼"/>
 		</f:facet>
 		<h:outputText value="#{item.maxPrice}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚËÄÁĞ -->
+	<!-- å®šä¹‰ç¬¬å››åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÎïÆ·ËùÓĞÈË"/>
+			<h:outputText value="ç‰©å“æ‰€æœ‰äºº"/>
 		</f:facet>
 		<h:outputText value="#{item.owner.username}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚÎåÁĞ -->
+	<!-- å®šä¹‰ç¬¬äº”åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÎïÆ·±¸×¢"/>
+			<h:outputText value="ç‰©å“å¤‡æ³¨"/>
 		</f:facet>
 		<h:outputText value="#{item.itemRemark}"/>
 	</h:column>

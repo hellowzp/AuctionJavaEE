@@ -1,5 +1,5 @@
 <%--
-ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
 author  yeeku.H.lee kongyeeku@163.com
 version  1.0
 Copyright (C), 2001-2010, yeeku.H.Lee
@@ -16,55 +16,55 @@ Date:
 <f:view>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>ÉÌÒµÅÄÂôJava EE³ÌĞò¿ò¼Ü</title>
+<title>å•†ä¸šæ‹å–Java EEç¨‹åºæ¡†æ¶</title>
 </head>
 <body>
 <table width="780" align="center" cellspacing="0"
 	background="images/bodybg.jpg">
 <tr>
 <td >
-<h3>ÇëÊäÈëÓÃ»§ÃûºÍÃÜÂëµÇÂ¼ÏµÍ³</h3>
+<h3>è¯·è¾“å…¥ç”¨æˆ·åå’Œå¯†ç ç™»å½•ç³»ç»Ÿ</h3>
 <div align="center">
 <h:outputText value="#{loginPro.errInfo}" styleClass="tip"/>
 <h:form>
 	<table width="50%">
 	<tr>
-		<td width="16%">ÓÃ»§Ãû£º</td>
+		<td width="16%">ç”¨æˆ·åï¼š</td>
 		<td width="40%"><h:inputText id="username" value="#{loginPro.username}" 
 		required="true"
-		requiredMessage="ÓÃ»§Ãû±ØĞëÌîĞ´£¡"
-		validatorMessage="ÓÃ»§Ãû³¤¶È±ØĞëÔÚ4¡«20Ö®¼ä">
+		requiredMessage="ç”¨æˆ·åå¿…é¡»å¡«å†™ï¼"
+		validatorMessage="ç”¨æˆ·åé•¿åº¦å¿…é¡»åœ¨4ï½20ä¹‹é—´">
 		<f:validateLength minimum="4" maximum="20"/>
 		</h:inputText></td>
 		<td width="44%"><h:message for="username" style="color:red"/></td>
 	</tr>
 	<tr>
-		<td>ÃÜ&nbsp;&nbsp;Âë£º</td>
+		<td>å¯†&nbsp;&nbsp;ç ï¼š</td>
 		<td><h:inputText id="password" value="#{loginPro.password}"
 		required="true"
-		requiredMessage="ÃÜÂë±ØĞëÌîĞ´£¡"
-		validatorMessage="ÃÜÂë³¤¶È±ØĞëÔÚ4¡«20Ö®¼ä">
+		requiredMessage="å¯†ç å¿…é¡»å¡«å†™ï¼"
+		validatorMessage="å¯†ç é•¿åº¦å¿…é¡»åœ¨4ï½20ä¹‹é—´">
 		<f:validateLength minimum="4" maximum="20"/>
 		</h:inputText></td>
 		<td><h:message for="password" style="color:red"/></td>
 	</tr>
 	<tr>
-		<td>ÑéÖ¤Âë£º</td>
+		<td>éªŒè¯ç ï¼š</td>
 		<td><h:inputText id="vercode" value="#{loginPro.vercode}"
 		required="true"
-		requiredMessage="ÑéÖ¤Âë±ØĞëÌîĞ´£¡"
-		validatorMessage="ÑéÖ¤Âë³¤¶È±ØĞëµÈÓÚ6">
+		requiredMessage="éªŒè¯ç å¿…é¡»å¡«å†™ï¼"
+		validatorMessage="éªŒè¯ç é•¿åº¦å¿…é¡»ç­‰äº6">
 		<f:validateLength minimum="6" maximum="6"/>
 		</h:inputText></td>
 		<td><h:message for="vercode" style="color:red"/></td>
 	</tr>
 	<tr>
 		<td colspan="3">
-		<h:commandButton value="µÇÂ¼" action="#{loginPro.execute}"/></td>
+		<h:commandButton value="ç™»å½•" action="#{loginPro.execute}"/></td>
 	</tr>
 	</table>
 </h:form>
-ÑéÖ¤Âë£º<img id="d" src="authImg.jpg" alt="ÑéÖ¤Âë"/>
+éªŒè¯ç ï¼š<img id="d" src="authImg.jpg" alt="éªŒè¯ç "/>
 </div>
 </td>
 </tr>

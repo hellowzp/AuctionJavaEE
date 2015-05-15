@@ -1,5 +1,5 @@
 <%--
-ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
 author  yeeku.H.lee kongyeeku@163.com
 version  1.0
 Copyright (C), 2001-2010, yeeku.H.Lee
@@ -16,7 +16,7 @@ Date:
 <f:view>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>¹ÜÀí×Ô¼ºµÄÅÄÂôÎïÆ·</title>
+	<title>ç®¡ç†è‡ªå·±çš„æ‹å–ç‰©å“</title>
 </head>
 <body>
 <table width="780" align="center" cellspacing="0"
@@ -24,38 +24,38 @@ Date:
 <tr>
 <td>
 <div align="center">
-<h3>Äúµ±Ç°µÄÅÄÂôÎïÆ·£º</h3>
+<h3>æ‚¨å½“å‰çš„æ‹å–ç‰©å“ï¼š</h3>
 <h:dataTable width="80%" border="1" 
 	cellpadding="0"
 	cellspacing="1"
 	style="border:1px solid black"
 	value="#{mgrItem.items}" var="item"
 	rowClasses="odd,even">
-	<!-- ¶¨ÒåµÚÒ»ÁÐ -->
+	<!-- å®šä¹‰ç¬¬ä¸€åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÎïÆ·Ãû"/>
+			<h:outputText value="ç‰©å“å"/>
 		</f:facet>
 		<h:outputText value="#{item.itemName}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚ¶þÁÐ -->
+	<!-- å®šä¹‰ç¬¬äºŒåˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÎïÆ·ÖÖÀà"/>
+			<h:outputText value="ç‰©å“ç§ç±»"/>
 		</f:facet>
 		<h:outputText value="#{item.kind.kindName}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚÈýÁÐ -->
+	<!-- å®šä¹‰ç¬¬ä¸‰åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="×î¸ß¾º¼Û"/>
+			<h:outputText value="æœ€é«˜ç«žä»·"/>
 		</f:facet>
 		<h:outputText value="#{item.maxPrice}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚËÄÁÐ -->
+	<!-- å®šä¹‰ç¬¬å››åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÎïÆ·±¸×¢"/>
+			<h:outputText value="ç‰©å“å¤‡æ³¨"/>
 		</f:facet>
 		<h:outputText value="#{item.itemRemark}"/>
 	</h:column>
@@ -65,80 +65,80 @@ Date:
 </tr>
 <tr>
 <td>
-<h3>Ìí¼ÓÐÂÎïÆ·</h3>
+<h3>æ·»åŠ æ–°ç‰©å“</h3>
 <div align="center">
 <h:outputText value="#{addItem.tipInfo}" styleClass="tip"/>
 <h:form>
 <table width="50%">
 <tr>
-	<td>Îï&nbsp;Æ·&nbsp;Ãû£º</td>
+	<td>ç‰©&nbsp;å“&nbsp;åï¼š</td>
 	<td><h:inputText id="name" value="#{addItem.name}"
 		required="true"
-		requiredMessage="ÎïÆ·Ãû±ØÐëÌîÐ´£¡"
-		validatorMessage="ÎïÆ·Ãû³¤¶È±ØÐëÔÚ2¡«20Ö®¼ä">
+		requiredMessage="ç‰©å“åå¿…é¡»å¡«å†™ï¼"
+		validatorMessage="ç‰©å“åé•¿åº¦å¿…é¡»åœ¨2ï½ž20ä¹‹é—´">
 		<f:validateLength minimum="2" maximum="20"/>
 		</h:inputText></td>
 	<td><h:message for="name" style="color:red"/></td>	
 </tr>
 <tr>
-	<td>ÎïÆ·ÃèÊö£º</td>
+	<td>ç‰©å“æè¿°ï¼š</td>
 	<td><h:inputText id="desc" value="#{addItem.desc}">
 		</h:inputText></td>
 	<td>&nbsp;</td>	
 </tr>
 <tr>
-	<td>ÎïÆ·±¸×¢£º</td>
+	<td>ç‰©å“å¤‡æ³¨ï¼š</td>
 	<td><h:inputText id="remark" value="#{addItem.remark}">
 		</h:inputText></td>
 	<td>&nbsp;</td>	
 </tr>
 <tr>
-<td>ÆðÅÄ¼Û¸ñ£º</td>
+<td>èµ·æ‹ä»·æ ¼ï¼š</td>
 	<td><h:inputText id="initPrice" value="#{addItem.initPrice}"
 		required="true"
-		requiredMessage="ÎïÆ·µÄÆðÅÄ¼Û¸ñ±ØÐëÌîÐ´£¡"
-		converterMessage="ÄúÊäÈëµÄÆðÅÄ¼Û¸ñÎÞÐ§£¡">
+		requiredMessage="ç‰©å“çš„èµ·æ‹ä»·æ ¼å¿…é¡»å¡«å†™ï¼"
+		converterMessage="æ‚¨è¾“å…¥çš„èµ·æ‹ä»·æ ¼æ— æ•ˆï¼">
 		</h:inputText></td>
 	<td><h:message for="initPrice" style="color:red"/></td>
 </tr>
 <tr>
-	<td>ÓÐÐ§Ê±¼ä£º</td>
+	<td>æœ‰æ•ˆæ—¶é—´ï¼š</td>
 	<td><h:selectOneMenu value="#{addItem.avail}">
-		<f:selectItem itemLabel="Ò»Ìì" itemValue="1"/>
-		<f:selectItem itemLabel="¶þÌì" itemValue="2"/>
-		<f:selectItem itemLabel="ÈýÌì" itemValue="3"/>
-		<f:selectItem itemLabel="ËÄÌì" itemValue="4"/>
-		<f:selectItem itemLabel="ÎåÌì" itemValue="5"/>
-		<f:selectItem itemLabel="Ò»¸öÐÇÆÚ" itemValue="6"/>
-		<f:selectItem itemLabel="Ò»¸öÔÂ" itemValue="7"/>
-		<f:selectItem itemLabel="Ò»Äê" itemValue="8"/>
+		<f:selectItem itemLabel="ä¸€å¤©" itemValue="1"/>
+		<f:selectItem itemLabel="äºŒå¤©" itemValue="2"/>
+		<f:selectItem itemLabel="ä¸‰å¤©" itemValue="3"/>
+		<f:selectItem itemLabel="å››å¤©" itemValue="4"/>
+		<f:selectItem itemLabel="äº”å¤©" itemValue="5"/>
+		<f:selectItem itemLabel="ä¸€ä¸ªæ˜ŸæœŸ" itemValue="6"/>
+		<f:selectItem itemLabel="ä¸€ä¸ªæœˆ" itemValue="7"/>
+		<f:selectItem itemLabel="ä¸€å¹´" itemValue="8"/>
 	</h:selectOneMenu></td>
 	<td>&nbsp;</td>
 </tr>
 <tr>
-	<td>ÎïÆ·ÖÖÀà£º</td>
+	<td>ç‰©å“ç§ç±»ï¼š</td>
 	<td><h:selectOneMenu value="#{addItem.kind}" >
 		<f:selectItems value="#{mgrItem.kinds}"/>
 	</h:selectOneMenu></td>
 	<td>&nbsp;</td>
 </tr>
 <tr>
-	<td>ÑéÖ¤Âë£º</td>
+	<td>éªŒè¯ç ï¼š</td>
 	<td><h:inputText id="vercode" value="#{addItem.vercode}"
 	required="true"
-	requiredMessage="ÑéÖ¤Âë±ØÐëÌîÐ´£¡"
-	validatorMessage="ÑéÖ¤Âë³¤¶È±ØÐëµÈÓÚ6">
+	requiredMessage="éªŒè¯ç å¿…é¡»å¡«å†™ï¼"
+	validatorMessage="éªŒè¯ç é•¿åº¦å¿…é¡»ç­‰äºŽ6">
 	<f:validateLength minimum="6" maximum="6"/>
 	</h:inputText></td>
 	<td><h:message for="vercode" style="color:red"/></td>
 </tr>
 <tr>
 <td colspan="3">
-<h:commandButton value="Ìí¼Ó" action="#{addItem.proAdd}"/></td>
+<h:commandButton value="æ·»åŠ " action="#{addItem.proAdd}"/></td>
 </tr>
 </table>
 </h:form>
-ÑéÖ¤Âë£º<img id="d" src="authImg.jpg">
+éªŒè¯ç ï¼š<img id="d" src="authImg.jpg">
 </div>
 </td>
 </tr>

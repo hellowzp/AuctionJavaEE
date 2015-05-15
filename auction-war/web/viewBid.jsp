@@ -1,5 +1,5 @@
 <%--
-ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
 author  yeeku.H.lee kongyeeku@163.com
 version  1.0
 Copyright (C), 2001-2010, yeeku.H.Lee
@@ -16,7 +16,7 @@ Date:
 <f:view>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>Äú²ÎÓëµÄÈ«²¿¾º¼Û</title>
+	<title>æ‚¨å‚ä¸çš„å…¨éƒ¨ç«ä»·</title>
 </head>
 <body>
 <table width="780" align="center" cellspacing="0"
@@ -25,38 +25,38 @@ Date:
 <td>
 <br />
 <div align="center">
-<h3>Äú²ÎÓëµÄÈ«²¿¾º¼Û</h3>
+<h3>æ‚¨å‚ä¸çš„å…¨éƒ¨ç«ä»·</h3>
 <h:dataTable width="80%" border="1"
 	cellpadding="0"
 	cellspacing="1"
 	style="border:1px solid black"
 	value="#{viewBid.bids}" var="bid"
 	rowClasses="odd,even">
-	<!-- ¶¨ÒåµÚÒ»ÁĞ -->
+	<!-- å®šä¹‰ç¬¬ä¸€åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÎïÆ·Ãû"/>
+			<h:outputText value="ç‰©å“å"/>
 		</f:facet>
 		<h:outputText value="#{bid.bidItem.itemName}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚ¶şÁĞ -->
+	<!-- å®šä¹‰ç¬¬äºŒåˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="¾º¼Û¼Û¸ñ"/>
+			<h:outputText value="ç«ä»·ä»·æ ¼"/>
 		</f:facet>
 		<h:outputText value="#{bid.bidPrice}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚÈıÁĞ -->
+	<!-- å®šä¹‰ç¬¬ä¸‰åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="¾º¼ÛÊ±¼ä"/>
+			<h:outputText value="ç«ä»·æ—¶é—´"/>
 		</f:facet>
 		<h:outputText value="#{bid.bidDate}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚËÄÁĞ -->
+	<!-- å®šä¹‰ç¬¬å››åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="¾º¼ÛÈË"/>
+			<h:outputText value="ç«ä»·äºº"/>
 		</f:facet>
 		<h:outputText value="#{bid.bidUser.username}"/>
 	</h:column>

@@ -1,5 +1,5 @@
 <%--
-ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
 author  yeeku.H.lee kongyeeku@163.com
 version  1.0
 Copyright (C), 2001-2010, yeeku.H.Lee
@@ -16,7 +16,7 @@ Date:
 <f:view>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>¹ÜÀíÅÄÂôÖÖÀà</title>
+	<title>ç®¡ç†æ‹å–ç§ç±»</title>
 </head>
 <body>
 <table width="780" align="center" 
@@ -24,40 +24,40 @@ Date:
 <tr>
 <td>
 <div align="center">
-<h3>µ±Ç°ÏµÍ³ÖĞÒÑÓĞµÄÎïÆ·ÖÖÀà</h3>
+<h3>å½“å‰ç³»ç»Ÿä¸­å·²æœ‰çš„ç‰©å“ç§ç±»</h3>
 <h:dataTable width="80%" border="1"
 	cellpadding="0"
 	cellspacing="1"
 	style="border:1px solid black"
 	value="#{mgrKind.kinds}" var="kind"
 	rowClasses="odd,even">
-	<!-- ¶¨ÒåµÚÒ»ÁĞ -->
+	<!-- å®šä¹‰ç¬¬ä¸€åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÖÖÀàÃû"/>
+			<h:outputText value="ç§ç±»å"/>
 		</f:facet>
 		<h:outputText value="#{kind.kindName}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚ¶şÁĞ -->
+	<!-- å®šä¹‰ç¬¬äºŒåˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÖÖÀàÃèÊö"/>
+			<h:outputText value="ç§ç±»æè¿°"/>
 		</f:facet>
 		<h:outputText value="#{kind.kindDesc}"/>
 	</h:column>
 </h:dataTable>
 </div>
 <div align="center">
-<h3>Ìí¼ÓĞÂÖÖÀà</h3>
+<h3>æ·»åŠ æ–°ç§ç±»</h3>
 <div align="center">
 <h:outputText value="#{addKind.errInfo}" styleClass="tip"/>
 <h:form>
-	ÖÖ&nbsp;Àà&nbsp;Ãû£º<h:inputText value="#{addKind.name}"/><br/>
-	ÖÖÀàÃèÊö£º<h:inputText value="#{addKind.desc}"/><br/>
-	Ñé&nbsp;Ö¤&nbsp;Âë£º<h:inputText value="#{addKind.vercode}"/><br/>
-	<h:commandButton value="Ìí¼ÓÖÖÀà" action="#{addKind.proAdd}"/>
+	ç§&nbsp;ç±»&nbsp;åï¼š<h:inputText value="#{addKind.name}"/><br/>
+	ç§ç±»æè¿°ï¼š<h:inputText value="#{addKind.desc}"/><br/>
+	éªŒ&nbsp;è¯&nbsp;ç ï¼š<h:inputText value="#{addKind.vercode}"/><br/>
+	<h:commandButton value="æ·»åŠ ç§ç±»" action="#{addKind.proAdd}"/>
 </h:form>
-ÑéÖ¤Âë£º<img id="d" src="authImg.jpg">
+éªŒè¯ç ï¼š<img id="d" src="authImg.jpg">
 </div>
 </td>
 </tr>

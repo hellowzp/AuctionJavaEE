@@ -1,5 +1,5 @@
 <%--
-ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
 author  yeeku.H.lee kongyeeku@163.com
 version  1.0
 Copyright (C), 2001-2010, yeeku.H.Lee
@@ -15,8 +15,8 @@ Date:
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title><decorator:title default="ÉÌÒµÅÄÂôJava EE³ÌÐò¿ò¼Ü"/></title>
-<!-- Ê¹ÓÃs:head±êÇ©ÒýÈëStruts 2±êÇ©µÄCSSÑùÊ½ÎÄ¼þ -->
+<title><decorator:title default="å•†ä¸šæ‹å–Java EEç¨‹åºæ¡†æž¶"/></title>
+<!-- ä½¿ç”¨s:headæ ‡ç­¾å¼•å…¥Struts 2æ ‡ç­¾çš„CSSæ ·å¼æ–‡ä»¶ -->
 <link href="images/css.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -29,27 +29,27 @@ Date:
 		border="0" align="right"></a></td>
 	<td width="440" height="65"><div align="center" 
 	style="font-size:16pt;color:#cc6600;font-weight:bold">
-		ÉÌÒµÅÄÂôJava EE³ÌÐò¿ò¼Ü</div></td>
+		å•†ä¸šæ‹å–Java EEç¨‹åºæ¡†æž¶</div></td>
 	<td width="173" rowspan="2"><a href="http://www.crazyit.org">
 		<img src="http://www.crazyit.org/logo.jpg" width="160"
 			height="80" border="0"></a></td>
 </tr>
 <tr>
-<td height="15"><div align="center" class="title">Èç¹ûÐèÒª¿ª·¢¸ßµµµÄJava EEÓ¦ÓÃ
-	£¬ÇëµÇÂ¼<a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>¡£Ð»Ð»</div></td>
+<td height="15"><div align="center" class="title">å¦‚æžœéœ€è¦å¼€å‘é«˜æ¡£çš„Java EEåº”ç”¨
+	ï¼Œè¯·ç™»å½•<a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>ã€‚è°¢è°¢</div></td>
 </tr>
 <tr>
 <td colspan="3"><br/>
 
 <table width="578" border="0" align="center" cellpadding="0" cellspacing="0">
 <tr>
-	<td width="116"><a href="viewSuccess.jsp">²é¿´¾ºµÃµÄÎïÆ·</a></td>
-	<td width="101"><a href="viewFail.jsp">ä¯ÀÀÁ÷ÅÄÎïÆ·</a></td>
-	<td width="79"><a href="mgrKind.jsp">¹ÜÀíÖÖÀà</a></td>
-	<td width="79"><a href="mgrItem.jsp">¹ÜÀíÎïÆ·</a></td>
-	<td width="105"><a href="viewKind.jsp">ä¯ÀÀÅÄÂôÎïÆ·</a></td>
-	<td width="110"><a href="viewBid.jsp">²é¿´×Ô¼ºµÄ¾º±ê</a></td>
-	<td width="70"><a href="main.jsp" >·µ»ØÊ×Ò³</a></div></td>
+	<td width="116"><a href="viewSuccess.jsp">æŸ¥çœ‹ç«žå¾—çš„ç‰©å“</a></td>
+	<td width="101"><a href="viewFail.jsp">æµè§ˆæµæ‹ç‰©å“</a></td>
+	<td width="79"><a href="mgrKind.jsp">ç®¡ç†ç§ç±»</a></td>
+	<td width="79"><a href="mgrItem.jsp">ç®¡ç†ç‰©å“</a></td>
+	<td width="105"><a href="viewKind.jsp">æµè§ˆæ‹å–ç‰©å“</a></td>
+	<td width="110"><a href="viewBid.jsp">æŸ¥çœ‹è‡ªå·±çš„ç«žæ ‡</a></td>
+	<td width="70"><a href="main.jsp" >è¿”å›žé¦–é¡µ</a></div></td>
 </tr>
 </table>
 </td>
@@ -58,7 +58,7 @@ Date:
 <td height="5" colspan="3"><hr /></td>
 </tr>
 </table>
-<!-- Êä³ö±»×°ÊÎÒ³ÃæµÄbody²¿·Ö -->
+<!-- è¾“å‡ºè¢«è£…é¥°é¡µé¢çš„bodyéƒ¨åˆ† -->
 <decorator:body/>
 <table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
 <tr>
@@ -74,8 +74,8 @@ Date:
 <tr>
 <td height="68" background="images/bodybg.jpg">   <div align="center" >
 All Rights Reserved.<br/>
-°æÈ¨ËùÓÐ Copyright@2006 Yeeku.H.Lee <br />
-ÈçÓÐÈÎºÎÎÊÌâºÍ½¨Òé£¬ÇëµÇÂ¼<a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>·´Ó³£¡</p>
+ç‰ˆæƒæ‰€æœ‰ Copyright@2006 Yeeku.H.Lee <br />
+å¦‚æœ‰ä»»ä½•é—®é¢˜å’Œå»ºè®®ï¼Œè¯·ç™»å½•<a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>åæ˜ ï¼</p>
 </div></td>
 </tr>
 <tr height="5"><td background="images/bottom.jpg"></td></tr>

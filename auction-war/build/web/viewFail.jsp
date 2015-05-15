@@ -1,5 +1,5 @@
 <%--
-ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
 author  yeeku.H.lee kongyeeku@163.com
 version  1.0
 Copyright (C), 2001-2010, yeeku.H.Lee
@@ -16,7 +16,7 @@ Date:
 <f:view>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>ËùÓĞÁ÷ÅÄµÄÎïÆ·</title>
+<title>æ‰€æœ‰æµæ‹çš„ç‰©å“</title>
 </head>
 <body>
 <table width="780" align="center" cellspacing="0"
@@ -24,38 +24,38 @@ Date:
 <tr>
 <td>
 <div align="center">
-<h3>ÏµÍ³ËùÓĞÁ÷ÅÄµÄÎïÆ·</h3>
+<h3>ç³»ç»Ÿæ‰€æœ‰æµæ‹çš„ç‰©å“</h3>
 <h:dataTable width="80%" border="1" 
 	cellpadding="0"
 	cellspacing="1"
 	style="border:1px solid black"
 	value="#{viewFail.failItems}" var="item"
 	rowClasses="odd,even">
-	<!-- ¶¨ÒåµÚÒ»ÁĞ -->
+	<!-- å®šä¹‰ç¬¬ä¸€åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÎïÆ·Ãû"/>
+			<h:outputText value="ç‰©å“å"/>
 		</f:facet>
 		<h:outputText value="#{item.itemName}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚ¶şÁĞ -->
+	<!-- å®šä¹‰ç¬¬äºŒåˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÎïÆ·ÖÖÀà"/>
+			<h:outputText value="ç‰©å“ç§ç±»"/>
 		</f:facet>
 		<h:outputText value="#{item.kind.kindName}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚÈıÁĞ -->
+	<!-- å®šä¹‰ç¬¬ä¸‰åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="×î¸ß¾º¼Û"/>
+			<h:outputText value="æœ€é«˜ç«ä»·"/>
 		</f:facet>
 		<h:outputText value="#{item.maxPrice}"/>
 	</h:column>
-	<!-- ¶¨ÒåµÚËÄÁĞ -->
+	<!-- å®šä¹‰ç¬¬å››åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÎïÆ·±¸×¢"/>
+			<h:outputText value="ç‰©å“å¤‡æ³¨"/>
 		</f:facet>
 		<h:outputText value="#{item.itemRemark}"/>
 	</h:column>

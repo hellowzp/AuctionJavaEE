@@ -1,5 +1,5 @@
 <%--
-ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a>
+ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a>
 author  yeeku.H.lee kongyeeku@163.com
 version  1.0
 Copyright (C), 2001-2010, yeeku.H.Lee
@@ -16,7 +16,7 @@ Date:
 <f:view>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Ñ¡ÔñÎïÆ·ÖÖÀà</title>
+<title>é€‰æ‹©ç‰©å“ç§ç±»</title>
 </head>
 <body>
 <table width="780" align="center" cellspacing="0"
@@ -28,26 +28,26 @@ Date:
 <tr>
 <td>
 <div align="center">
-<h3>ÇëÑ¡ÔñĞèÒªä¯ÀÀµÄÎïÆ·ÖÖÀà</h3>
+<h3>è¯·é€‰æ‹©éœ€è¦æµè§ˆçš„ç‰©å“ç§ç±»</h3>
 <h:dataTable width="80%" border="1"
 	cellpadding="0"
 	cellspacing="1"
 	style="border:1px solid black"
 	value="#{mgrKind.kinds}" var="kind"
 	rowClasses="odd,even">
-	<!-- ¶¨ÒåµÚÒ»ÁĞ -->
+	<!-- å®šä¹‰ç¬¬ä¸€åˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÖÖÀàÃû"/>
+			<h:outputText value="ç§ç±»å"/>
 		</f:facet>
 		<h:outputLink value="viewItem.jsp?kindId=#{kind.id}">
 		<h:outputText value="#{kind.kindName}"/>
 		</h:outputLink>
 	</h:column>
-	<!-- ¶¨ÒåµÚ¶şÁĞ -->
+	<!-- å®šä¹‰ç¬¬äºŒåˆ— -->
 	<h:column>
 		<f:facet name="header">
-			<h:outputText value="ÖÖÀàÃèÊö"/>
+			<h:outputText value="ç§ç±»æè¿°"/>
 		</f:facet>
 		<h:outputText value="#{kind.kindDesc}"/>
 	</h:column>
