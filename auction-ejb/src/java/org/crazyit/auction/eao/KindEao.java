@@ -6,7 +6,7 @@ import javax.ejb.*;
 import org.crazyit.auction.model.*;
 /**
  * Description:
- * <br/>网站: <a href="http://www.crazyit.org">疯狂Java联盟</a> 
+ * <br/>缃戠珯: <a href="http://www.crazyit.org">鐤媯Java鑱旂洘</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -19,8 +19,8 @@ public interface KindEao
 	extends Eao
 {
 	/**
-	 * 查询全部种类
-	 * @return 获得全部种类
+	 * 鏌ヨ鍏ㄩ儴绉嶇被
+	 * @return 鑾峰緱鍏ㄩ儴绉嶇被
 	 */
 	List<Kind> findAll();
 }

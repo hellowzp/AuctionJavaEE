@@ -11,7 +11,7 @@ import org.crazyit.auction.model.*;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -24,10 +24,10 @@ public class ViewItemAction
 	private int kindId;
 	private String kind;
 	private List<Item> items;
-	//ÒÀÀµ×¢ÈëÒµÎñÂß¼­×é¼ş£¨Session Bean£©
+	//ä¾èµ–æ³¨å…¥ä¸šåŠ¡é€»è¾‘ç»„ä»¶ï¼ˆSession Beanï¼‰
 	@EJB(beanName="auctionManager")
 	private AuctionManager am;
-	//kindIdÊôĞÔµÄsetterºÍgetter·½·¨
+	//kindIdå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setKindId(int kindId)
 	{
 		this.kindId = kindId;
@@ -40,7 +40,7 @@ public class ViewItemAction
 			.getRequestParameterMap();
 		return Integer.parseInt(request.get("kindId"));
 	}
-	//kindÊôĞÔµÄsetterºÍgetter·½·¨
+	//kindå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setKind(String kind)
 	{
 		this.kind = kind;
@@ -49,7 +49,7 @@ public class ViewItemAction
 	{
 		return am.getKind(getKindId());
 	}
-	//itemsÊôĞÔµÄsetterºÍgetter·½·¨
+	//itemså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setItems(List<Item> items)
 	{
 		this.items = items;

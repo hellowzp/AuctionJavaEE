@@ -9,7 +9,7 @@ import org.crazyit.auction.exception.AuctionException;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -23,13 +23,13 @@ public class AddKindAction
 	private String desc;
 	private String vercode;
 	private String errInfo;
-	//ÒÀÀµ×¢ÈëÒµÎñÂß¼­×é¼ş£¨Session Bean£©
+	//ä¾èµ–æ³¨å…¥ä¸šåŠ¡é€»è¾‘ç»„ä»¶ï¼ˆSession Beanï¼‰
 	@EJB(beanName="auctionManager")
 	private AuctionManager am;
 
 	public String proAdd()throws Exception
 	{
-		//ÔÚJSFÖĞ·ÃÎÊSession·¶Î§µÄÊı¾İ
+		//åœ¨JSFä¸­è®¿é—®SessionèŒƒå›´çš„æ•°æ®
 		Map<String , Object> session = FacesContext
 			.getCurrentInstance()
 			.getExternalContext()
@@ -39,16 +39,16 @@ public class AddKindAction
 		if (vercode.equalsIgnoreCase(ver2))
 		{				
 			am.addKind(name , desc);
-			setErrInfo("ÖÖÀàÌí¼Ó³É¹¦£¡");
+			setErrInfo("ç§ç±»æ·»åŠ æˆåŠŸï¼");
 			return "success";
 		}
 		else
 		{
-			setErrInfo("ÑéÖ¤Âë²»Æ¥Åä,ÇëÖØĞÂÊäÈë");
+			setErrInfo("éªŒè¯ç ä¸åŒ¹é…,è¯·é‡æ–°è¾“å…¥");
 			return "input";
 		}
 	}
-	//nameÊôĞÔµÄsetterºÍgetter·½·¨
+	//nameå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setName(String name)
 	{
 		this.name = name;
@@ -57,7 +57,7 @@ public class AddKindAction
 	{
 		 return this.name;
 	}
-	//descÊôĞÔµÄsetterºÍgetter·½·¨
+	//descå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setDesc(String desc)
 	{
 		this.desc = desc;
@@ -66,7 +66,7 @@ public class AddKindAction
 	{
 		 return this.desc;
 	}
-	//vercodeÊôĞÔµÄsetterºÍgetter·½·¨
+	//vercodeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setVercode(String vercode)
 	{
 		this.vercode = vercode;
@@ -75,7 +75,7 @@ public class AddKindAction
 	{
 		 return this.vercode;
 	}
-	//errInfoµÄsetterºÍgetter·½·¨
+	//errInfoçš„setterå’Œgetteræ–¹æ³•
 	public void setErrInfo(String errInfo)
 	{
 		this.errInfo = errInfo;

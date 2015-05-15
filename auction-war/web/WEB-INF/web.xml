@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="GBK"?>
-<!-- ÅäÖÃWebÓ¦ÓÃÅäÖÃÎÄ¼þµÄ¸ùÔªËØ£¬²¢Ö¸¶¨ÅäÖÃÎÄ¼þµÄSchemaÐÅÏ¢ -->
+<!-- é…ç½®Webåº”ç”¨é…ç½®æ–‡ä»¶çš„æ ¹å…ƒç´ ï¼Œå¹¶æŒ‡å®šé…ç½®æ–‡ä»¶çš„Schemaä¿¡æ¯ -->
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
@@ -8,10 +8,10 @@
 		<listener-class>org.crazyit.auction.schedule.ScheduleListener</listener-class>
 	</listener>
 
-	<!-- ÅäÖÃJSF³ÌÐò×´Ì¬µÄ±£´æÎ»ÖÃ -->
+	<!-- é…ç½®JSFç¨‹åºçŠ¶æ€çš„ä¿å­˜ä½ç½® -->
 	<context-param>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-		<!-- ½«³ÌÐò×´Ì¬±£´æÔÚ¿Í»§¶Ë -->
+		<!-- å°†ç¨‹åºçŠ¶æ€ä¿å­˜åœ¨å®¢æˆ·ç«¯ -->
 		<param-value>client</param-value>
 	</context-param>
 	<context-param>
@@ -19,24 +19,24 @@
 		<param-value>true</param-value>
 	</context-param>
 
-	<!-- ÅäÖÃJSFµÄºËÐÄ¿ØÖÆÆ÷£ºFacesServlet  -->
+	<!-- é…ç½®JSFçš„æ ¸å¿ƒæŽ§åˆ¶å™¨ï¼šFacesServlet  -->
 	<servlet>
 		<servlet-name>FacesServlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	<!-- ÅäÖÃJSFºËÐÄFacesServletµÄÓ³Éä -->
+	<!-- é…ç½®JSFæ ¸å¿ƒFacesServletçš„æ˜ å°„ -->
 	<servlet-mapping>
 		<servlet-name>FacesServlet</servlet-name>
 		<url-pattern>/faces/*</url-pattern>
 	</servlet-mapping>
 
-	<!-- ÅäÖÃÍ¼ÐÎÑéÖ¤ÂëServlet -->
+	<!-- é…ç½®å›¾å½¢éªŒè¯ç Servlet -->
 	<servlet>
 		<servlet-name>img</servlet-name>
 		<servlet-class>org.crazyit.auction.web.AuthImg</servlet-class>
 	</servlet>
-	<!-- ÎªÍ¼ÐÎÑéÖ¤ÂëServletÖ¸¶¨URL -->
+	<!-- ä¸ºå›¾å½¢éªŒè¯ç ServletæŒ‡å®šURL -->
 	<servlet-mapping>
 		<servlet-name>img</servlet-name>
 		<url-pattern>/authImg.jpg</url-pattern>
@@ -44,13 +44,13 @@
 
 	<filter>
 		<filter-name>sitemesh</filter-name>
-		<!-- Ö¸¶¨SiteMesh¿ò¼ÜºËÐÄFilterµÄÊµÏÖÀà -->
+		<!-- æŒ‡å®šSiteMeshæ¡†æž¶æ ¸å¿ƒFilterçš„å®žçŽ°ç±» -->
 		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
 	</filter>
-	<!-- Ó³ÉäSiteMesh¿ò¼ÜµÄºËÐÄFilter¹ýÂËËùÓÐÓÃ»§ÇëÇó -->
+	<!-- æ˜ å°„SiteMeshæ¡†æž¶çš„æ ¸å¿ƒFilterè¿‡æ»¤æ‰€æœ‰ç”¨æˆ·è¯·æ±‚ -->
 	<filter-mapping>
 		<filter-name>sitemesh</filter-name>
-		<!-- Ê¹ÓÃÄ£Ê½Æ¥ÅäµÄ·½Ê½ÈÃ¸ÃFilter´¦ÀíËùÓÐÓÃ»§ÇëÇó-->
+		<!-- ä½¿ç”¨æ¨¡å¼åŒ¹é…çš„æ–¹å¼è®©è¯¥Filterå¤„ç†æ‰€æœ‰ç”¨æˆ·è¯·æ±‚-->
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 

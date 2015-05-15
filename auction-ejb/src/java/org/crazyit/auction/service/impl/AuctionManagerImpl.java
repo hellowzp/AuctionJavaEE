@@ -14,7 +14,7 @@ import org.crazyit.auction.service.AuctionManager;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -22,7 +22,7 @@ import org.crazyit.auction.service.AuctionManager;
  * @author  Yeeku.H.Lee kongyeeku@163.com
  * @version  1.0
  */
-//¶¨ÒåÈİÆ÷¹ÜÀíÊÂÎñµÄÅäÖÃ
+//å®šä¹‰å®¹å™¨ç®¡ç†äº‹åŠ¡çš„é…ç½®
 @TransactionManagement(TransactionManagementType.CONTAINER)
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
 @Stateless(name="auctionManager")
@@ -30,7 +30,7 @@ public class AuctionManagerImpl implements AuctionManager
 {
 	static Logger log = Logger.getLogger(
 		AuctionManagerImpl.class.getName());
-	//ÒÔÏÂÊÇ¸ÃÒµÎñÂß¼­×é¼şËùÒÀÀµµÄEAO×é¼ş
+	//ä»¥ä¸‹æ˜¯è¯¥ä¸šåŠ¡é€»è¾‘ç»„ä»¶æ‰€ä¾èµ–çš„EAOç»„ä»¶
 	@EJB(beanName="auctionUserEao")
 	private AuctionUserEao userEao;
 	@EJB(beanName="bidEao")
@@ -41,15 +41,15 @@ public class AuctionManagerImpl implements AuctionManager
 	private KindEao kindEao;
 	@EJB(beanName="stateEao")
 	private StateEao stateEao;
-	//ÏÂÃæÁ½¸ö×ÊÔ´ÊÇ·¢ËÍJMSÏûÏ¢ËùĞèµÄ×ÊÔ´
+	//ä¸‹é¢ä¸¤ä¸ªèµ„æºæ˜¯å‘é€JMSæ¶ˆæ¯æ‰€éœ€çš„èµ„æº
 	@Resource(mappedName="AuctionQueue")
 	private Destination dest;
 	@Resource(mappedName="ConnectionFactory")
 	private ConnectionFactory connFactory;
 	/**
-	 * ¸ù¾İÓ®È¡Õß²éÑ¯ÎïÆ·
-	 * @param winerId Ó®È¡ÕßµÄID
-	 * @return Ó®È¡Õß»ñµÃµÄÈ«²¿ÎïÆ·
+	 * æ ¹æ®èµ¢å–è€…æŸ¥è¯¢ç‰©å“
+	 * @param winerId èµ¢å–è€…çš„ID
+	 * @return èµ¢å–è€…è·å¾—çš„å…¨éƒ¨ç‰©å“
 	 */
 	public List<Item> getItemByWiner(Integer winerId) throws AuctionException
 	{
@@ -60,13 +60,13 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception e)
 		{
 			log.debug(e.getMessage());
-			throw new AuctionException("²éÑ¯ÓÃ»§ËùÓ®È¡µÄÎïÆ·³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("æŸ¥è¯¢ç”¨æˆ·æ‰€èµ¢å–çš„ç‰©å“å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	 * ²éÑ¯Á÷ÅÄµÄÈ«²¿ÎïÆ·
-	 * @return È«²¿Á÷ÅÄÎïÆ·
+	 * æŸ¥è¯¢æµæ‹çš„å…¨éƒ¨ç‰©å“
+	 * @return å…¨éƒ¨æµæ‹ç‰©å“
 	 */
 	public List<Item> getFailItems() throws AuctionException
 	{
@@ -77,15 +77,15 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception e)
 		{
 			log.debug(e.getMessage());
-			throw new AuctionException("²éÑ¯Á÷ÅÄÎïÆ·³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("æŸ¥è¯¢æµæ‹ç‰©å“å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	 * ¸ù¾İÓÃ»§Ãû£¬ÃÜÂëÑéÖ¤µÇÂ¼ÊÇ·ñ³É¹¦
-	 * @param username µÇÂ¼µÄÓÃ»§Ãû
- 	 * @param pass µÇÂ¼µÄÃÜÂë
-	 * @return µÇÂ¼³É¹¦·µ»ØÓÃ»§ID£¬·ñÔò·µ»Ø-1
+	 * æ ¹æ®ç”¨æˆ·åï¼Œå¯†ç éªŒè¯ç™»å½•æ˜¯å¦æˆåŠŸ
+	 * @param username ç™»å½•çš„ç”¨æˆ·å
+ 	 * @param pass ç™»å½•çš„å¯†ç 
+	 * @return ç™»å½•æˆåŠŸè¿”å›ç”¨æˆ·IDï¼Œå¦åˆ™è¿”å›-1
 	 */
 	public int validLogin(String username , String pass) throws AuctionException
 	{
@@ -101,14 +101,14 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception e)
 		{
 			log.debug(e.getMessage());
-			throw new AuctionException("´¦ÀíÓÃ»§µÇÂ¼³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("å¤„ç†ç”¨æˆ·ç™»å½•å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	 * ²éÑ¯ÓÃ»§µÄÈ«²¿³ö¼Û
-	 * @param userId ¾º¼ÛÓÃ»§µÄID
-	 * @return ÓÃ»§µÄÈ«²¿³ö¼Û
+	 * æŸ¥è¯¢ç”¨æˆ·çš„å…¨éƒ¨å‡ºä»·
+	 * @param userId ç«ä»·ç”¨æˆ·çš„ID
+	 * @return ç”¨æˆ·çš„å…¨éƒ¨å‡ºä»·
 	 */
 	public List<Bid> getBidByUser(Integer userId) throws AuctionException
 	{
@@ -119,14 +119,14 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception e)
 		{
 			log.debug(e.getMessage());
-			throw new AuctionException("ä¯ÀÀÓÃ»§µÄÈ«²¿¾º¼Û³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("æµè§ˆç”¨æˆ·çš„å…¨éƒ¨ç«ä»·å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	 * ¸ù¾İÓÃ»§²éÕÒÄ¿Ç°ÈÔÔÚÅÄÂôÖĞµÄÈ«²¿ÎïÆ·
-	 * @param userId ËùÊôÕßµÄID
-	 * @return ÊôÓÚµ±Ç°ÓÃ»§µÄ¡¢´¦ÓÚÅÄÂôÖĞµÄÈ«²¿ÎïÆ·¡£
+	 * æ ¹æ®ç”¨æˆ·æŸ¥æ‰¾ç›®å‰ä»åœ¨æ‹å–ä¸­çš„å…¨éƒ¨ç‰©å“
+	 * @param userId æ‰€å±è€…çš„ID
+	 * @return å±äºå½“å‰ç”¨æˆ·çš„ã€å¤„äºæ‹å–ä¸­çš„å…¨éƒ¨ç‰©å“ã€‚
 	 */
 	public List<Item> getItemsByOwner(Integer userId) throws AuctionException
 	{
@@ -137,13 +137,13 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception e)
 		{
 			log.debug(e.getMessage());
-			throw new AuctionException("²éÑ¯ÓÃ»§ËùÓĞµÄÎïÆ·³öÏÖÒì³£,ÇëÖØĞÂ");
+			throw new AuctionException("æŸ¥è¯¢ç”¨æˆ·æ‰€æœ‰çš„ç‰©å“å‡ºç°å¼‚å¸¸,è¯·é‡æ–°");
 		}
 	}
 
 	/**
-	 * ²éÑ¯È«²¿ÖÖÀà
-	 * @return ÏµÍ³ÖĞÈ«²¿È«²¿ÖÖÀà
+	 * æŸ¥è¯¢å…¨éƒ¨ç§ç±»
+	 * @return ç³»ç»Ÿä¸­å…¨éƒ¨å…¨éƒ¨ç§ç±»
 	 */   
 	public List<Kind> getAllKind() throws AuctionException
 	{
@@ -154,19 +154,19 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception e)
 		{
 			log.debug(e.getMessage());
-			throw new AuctionException("²éÑ¯È«²¿ÖÖÀà³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("æŸ¥è¯¢å…¨éƒ¨ç§ç±»å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	* Ìí¼ÓÎïÆ·
-	* @param name ÎïÆ·Ãû³Æ
-	* @param desc ÎïÆ·ÃèÊö
-	* @param remark ÎïÆ·±¸×¢
-	* @param avail ÓĞĞ§ÌìÊı
-	* @param kind ÎïÆ·ÖÖÀà
-	* @param userId Ìí¼ÓÕßµÄID
-	* @return ĞÂÔöÎïÆ·µÄÖ÷¼ü
+	* æ·»åŠ ç‰©å“
+	* @param name ç‰©å“åç§°
+	* @param desc ç‰©å“æè¿°
+	* @param remark ç‰©å“å¤‡æ³¨
+	* @param avail æœ‰æ•ˆå¤©æ•°
+	* @param kind ç‰©å“ç§ç±»
+	* @param userId æ·»åŠ è€…çš„ID
+	* @return æ–°å¢ç‰©å“çš„ä¸»é”®
 	*/
 	public int addItem(String name , String desc , String remark ,
 		double initPrice , int avail , int kindId , Integer userId)
@@ -176,7 +176,7 @@ public class AuctionManagerImpl implements AuctionManager
 		{
 			Kind k = kindEao.get(Kind.class , kindId);
 			AuctionUser owner = userEao.get(AuctionUser.class , userId);
-			//´´½¨Item¶ÔÏó
+			//åˆ›å»ºItemå¯¹è±¡
 			Item item = new Item();
 			item.setItemName(name);
 			item.setItemDesc(desc);
@@ -190,22 +190,22 @@ public class AuctionManagerImpl implements AuctionManager
 			item.setItemState(stateEao.get(State.class , 1));
 			item.setKind(k);
 			item.setOwner(owner);
-			//³Ö¾Ã»¯Item¶ÔÏó
+			//æŒä¹…åŒ–Itemå¯¹è±¡
 			itemEao.save(item);
 			return item.getId();
 		}
 		catch (Exception e)
 		{
 			log.debug(e.getMessage());
-			throw new AuctionException("Ìí¼ÓÎïÆ·³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("æ·»åŠ ç‰©å“å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	 * Ìí¼ÓÖÖÀà
-	 * @param name ÖÖÀàÃû³Æ
-	 * @param desc ÖÖÀàÃèÊö
-	 * @return ĞÂÔöÖÖÀàµÄÖ÷¼ü
+	 * æ·»åŠ ç§ç±»
+	 * @param name ç§ç±»åç§°
+	 * @param desc ç§ç±»æè¿°
+	 * @return æ–°å¢ç§ç±»çš„ä¸»é”®
 	 */ 
 	public int addKind(String name , String desc)
 		throws AuctionException
@@ -221,14 +221,14 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception e)
 		{
 			log.debug(e.getMessage());
-			throw new AuctionException("Ìí¼ÓÖÖÀà³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("æ·»åŠ ç§ç±»å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	 * ¸ù¾İ²úÆ··ÖÀà£¬»ñÈ¡´¦ÓÚÅÄÂôÖĞµÄÈ«²¿ÎïÆ·
-	 * @param kindId ÖÖÀàid;
-	 * @return ¸ÃÀàµÄÈ«²¿²úÆ·
+	 * æ ¹æ®äº§å“åˆ†ç±»ï¼Œè·å–å¤„äºæ‹å–ä¸­çš„å…¨éƒ¨ç‰©å“
+	 * @param kindId ç§ç±»id;
+	 * @return è¯¥ç±»çš„å…¨éƒ¨äº§å“
 	 */
 	public List<Item> getItemsByKind(int kindId) throws AuctionException
 	{
@@ -239,14 +239,14 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception e)
 		{
 			log.debug(e.getMessage());
-			throw new AuctionException("¸ù¾İÖÖÀà»ñÈ¡ÎïÆ·³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("æ ¹æ®ç§ç±»è·å–ç‰©å“å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	 * ¸ù¾İÖÖÀàid»ñÈ¡ÖÖÀàÃû
-	 * @param kindId ÖÖÀàid;
-	 * @return ¸ÃÖÖÀàµÄÃû³Æ
+	 * æ ¹æ®ç§ç±»idè·å–ç§ç±»å
+	 * @param kindId ç§ç±»id;
+	 * @return è¯¥ç§ç±»çš„åç§°
 	 */
 	public String getKind(int kindId) throws AuctionException
 	{
@@ -262,14 +262,14 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception ex)
 		{
 			log.debug(ex.getMessage());
-			throw new AuctionException("¸ù¾İÖÖÀàid»ñÈ¡ÖÖÀàÃû³Æ³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("æ ¹æ®ç§ç±»idè·å–ç§ç±»åç§°å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	 * ¸ù¾İÎïÆ·id£¬»ñÈ¡ÎïÆ·
-	 * @param itemId ÎïÆ·id;
-	 * @return Ö¸¶¨id¶ÔÓ¦µÄÎïÆ·
+	 * æ ¹æ®ç‰©å“idï¼Œè·å–ç‰©å“
+	 * @param itemId ç‰©å“id;
+	 * @return æŒ‡å®šidå¯¹åº”çš„ç‰©å“
 	 */
 	public Item getItem(int itemId)
 		throws AuctionException
@@ -281,16 +281,16 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception ex)
 		{
 			log.debug(ex.getMessage());
-			throw new AuctionException("¸ù¾İÎïÆ·id»ñÈ¡ÎïÆ·ÏêÏ¸ĞÅÏ¢³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("æ ¹æ®ç‰©å“idè·å–ç‰©å“è¯¦ç»†ä¿¡æ¯å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	 * Ôö¼ÓĞÂµÄ¾º¼Û£¬²¢¶Ô¾º¼ÛÓÃ»§·¢ÓÊ¼şÍ¨Öª
-	 * @param itemId ÎïÆ·id;
-	 * @param bidPrice ¾º¼Û¼Û¸ñ
-	 * @param userId ¾º¼ÛÓÃ»§µÄID
-	 * @return ·µ»ØĞÂÔö¾º¼Û¼ÇÂ¼µÄID
+	 * å¢åŠ æ–°çš„ç«ä»·ï¼Œå¹¶å¯¹ç«ä»·ç”¨æˆ·å‘é‚®ä»¶é€šçŸ¥
+	 * @param itemId ç‰©å“id;
+	 * @param bidPrice ç«ä»·ä»·æ ¼
+	 * @param userId ç«ä»·ç”¨æˆ·çš„ID
+	 * @return è¿”å›æ–°å¢ç«ä»·è®°å½•çš„ID
 	 */
 	public int addBid(int itemId , double bidPrice , Integer userId)
 		throws AuctionException
@@ -304,34 +304,34 @@ public class AuctionManagerImpl implements AuctionManager
 				item.setMaxPrice(bidPrice);
 				itemEao.save(item);
 			}
-			//³õÊ¼»¯Bid¶ÔÏó
+			//åˆå§‹åŒ–Bidå¯¹è±¡
 			Bid bid = new Bid();
 			bid.setBidItem(item);
 			bid.setBidUser(au);
 			bid.setBidDate(new Date());
 			bid.setBidPrice(bidPrice);
-			//³Ö¾Ã»¯Bid¶ÔÏó
+			//æŒä¹…åŒ–Bidå¯¹è±¡
 			bidEao.save(bid);
 
-			//Á¬½Ó¹¤³§´´½¨Á¬½Ó
+			//è¿æ¥å·¥å‚åˆ›å»ºè¿æ¥
 			Connection conn = connFactory.createConnection();
-			//JMSÁ¬½Ó´´½¨JMS»á»°
-			Session session = conn.createSession(false/*²»ÊÇÊÂÎñĞÔ»á»°*/
+			//JMSè¿æ¥åˆ›å»ºJMSä¼šè¯
+			Session session = conn.createSession(false/*ä¸æ˜¯äº‹åŠ¡æ€§ä¼šè¯*/
 				, Session.AUTO_ACKNOWLEDGE);
-			//JMS»á»°´´½¨ÏûÏ¢Éú²úÕß
+			//JMSä¼šè¯åˆ›å»ºæ¶ˆæ¯ç”Ÿäº§è€…
 			MessageProducer sender = session.createProducer(dest);
-			//ÉèÖÃÏûÏ¢Éú²úÕßÉú²ú³öÀ´µÄÏûÏ¢µÄ´«µİÄ£Ê½¡¢ÓĞĞ§Ê±¼ä¡£
+			//è®¾ç½®æ¶ˆæ¯ç”Ÿäº§è€…ç”Ÿäº§å‡ºæ¥çš„æ¶ˆæ¯çš„ä¼ é€’æ¨¡å¼ã€æœ‰æ•ˆæ—¶é—´ã€‚
 			sender.setDeliveryMode(DeliveryMode.PERSISTENT);
 			sender.setTimeToLive(20000);
-			//Í¨¹ıJMS»á»°´´½¨Ò»¸öMapMessage
+			//é€šè¿‡JMSä¼šè¯åˆ›å»ºä¸€ä¸ªMapMessage
 			MapMessage msg = session.createMapMessage();
-			//ÉèÖÃÏûÏ¢ÄÚÈİ
+			//è®¾ç½®æ¶ˆæ¯å†…å®¹
 			msg.setString("mailTo" , au.getEmail());
 			msg.setString("bidUser" , au.getUsername());
 			msg.setString("itemName" , item.getItemName());
-			//·¢ËÍÏûÏ¢
+			//å‘é€æ¶ˆæ¯
 			sender.send(msg);
-			//¹Ø±Õ×ÊÔ´
+			//å…³é—­èµ„æº
 			session.close();
 			conn.close();
 
@@ -341,12 +341,12 @@ public class AuctionManagerImpl implements AuctionManager
 		{
 			ex.printStackTrace();
 			log.debug(ex.getMessage());
-			throw new AuctionException("´¦ÀíÓÃ»§¾º¼Û³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("å¤„ç†ç”¨æˆ·ç«ä»·å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 
 	/**
-	 * ¸ù¾İÊ±¼äÀ´ĞŞ¸ÄÎïÆ·µÄ×´Ì¬¡¢Ó®È¡Õß
+	 * æ ¹æ®æ—¶é—´æ¥ä¿®æ”¹ç‰©å“çš„çŠ¶æ€ã€èµ¢å–è€…
 	 */
 	public void updateWiner()
 		throws AuctionException
@@ -359,21 +359,21 @@ public class AuctionManagerImpl implements AuctionManager
 				Item item = itemList.get(i);
 				if (!item.getEndtime().after(new Date()))
 				{
-					//¸ù¾İÖ¸¶¨ÎïÆ·ºÍ×î¸ß¾º¼ÛÀ´²éÑ¯ÓÃ»§
+					//æ ¹æ®æŒ‡å®šç‰©å“å’Œæœ€é«˜ç«ä»·æ¥æŸ¥è¯¢ç”¨æˆ·
 					AuctionUser au = bidEao.findUserByItemAndPrice(
 						item.getId() , item.getMaxPrice());
-					//Èç¹û¸ÃÎïÆ·µÄ×î¸ß¾º¼ÛÕß²»Îªnull
+					//å¦‚æœè¯¥ç‰©å“çš„æœ€é«˜ç«ä»·è€…ä¸ä¸ºnull
 					if (au != null)
 					{
-						//½«¸Ã¾º¼ÛÕßÉèÎªÓ®È¡Õß
+						//å°†è¯¥ç«ä»·è€…è®¾ä¸ºèµ¢å–è€…
 						item.setWiner(au);
-						//ĞŞ¸ÄÎïÆ·µÄ×´Ì¬³ÉÎª¡°±»Ó®È¡¡±
+						//ä¿®æ”¹ç‰©å“çš„çŠ¶æ€æˆä¸ºâ€œè¢«èµ¢å–â€
 						item.setItemState(stateEao.get(State.class , 2));
 						itemEao.save(item);
 					}
 					else
 					{
-						//ÉèÖÃ¸ÃÎïÆ·µÄ×´Ì¬Îª¡°Á÷ÅÄ¡±
+						//è®¾ç½®è¯¥ç‰©å“çš„çŠ¶æ€ä¸ºâ€œæµæ‹â€
 						item.setItemState(stateEao.get(State.class , 3));
 						itemEao.save(item);
 					}
@@ -383,7 +383,7 @@ public class AuctionManagerImpl implements AuctionManager
 		catch (Exception ex)
 		{
 			log.debug(ex.getMessage());
-			throw new AuctionException("¼ì²éÎïÆ·ÊÇ·ñ³¬¹ı¾ºÅÄÊ±¼ä³öÏÖÒì³£,ÇëÖØÊÔ");
+			throw new AuctionException("æ£€æŸ¥ç‰©å“æ˜¯å¦è¶…è¿‡ç«æ‹æ—¶é—´å‡ºç°å¼‚å¸¸,è¯·é‡è¯•");
 		}
 	}
 }

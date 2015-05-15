@@ -1,112 +1,112 @@
 <?xml version="1.0" encoding="GBK"?>
-<!-- JSFÅäÖÃÎÄ¼þµÄ¸ùÔªËØ,²¢Ö¸¶¨SchemaÐÅÏ¢ -->
+<!-- JSFé…ç½®æ–‡ä»¶çš„æ ¹å…ƒç´ ,å¹¶æŒ‡å®šSchemaä¿¡æ¯ -->
 <faces-config xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
 	version="1.2">
 
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>viewSuccess</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.ViewSuAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>viewBid</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.ViewBidAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>viewFail</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.ViewFailAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>mgrKind</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.MgrKindAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>addKind</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.AddKindAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>viewItem</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.ViewItemAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>viewDetail</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.ViewDetailAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>mgrItem</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.MgrItemAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>loginPro</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.LoginAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>addBid</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.AddBidAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
-	<!-- ÅäÖÃÍÐ¹ÜBean -->
+	<!-- é…ç½®æ‰˜ç®¡Bean -->
 	<managed-bean>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÃû×Ö -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„åå­— -->
 		<managed-bean-name>addItem</managed-bean-name>
-		<!-- ÉèÖÃÍÐ¹ÜBeanµÄÊµÏÖÀà -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beançš„å®žçŽ°ç±» -->
 		<managed-bean-class>org.crazyit.auction.jsf.AddItemAction</managed-bean-class>
-		<!-- ÉèÖÃÍÐ¹ÜBeanÊµÀýµÄÓÐÐ§·¶Î§ -->
+		<!-- è®¾ç½®æ‰˜ç®¡Beanå®žä¾‹çš„æœ‰æ•ˆèŒƒå›´ -->
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 	<navigation-rule>
-		<!-- µ¼º½¹æÔòµÄÊäÈëÒ³Ãæ -->
+		<!-- å¯¼èˆªè§„åˆ™çš„è¾“å…¥é¡µé¢ -->
 		<from-view-id>/login.jsp</from-view-id>
 		<navigation-case>
 			<from-outcome>success</from-outcome>
@@ -118,7 +118,7 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<!-- µ¼º½¹æÔòµÄÊäÈëÒ³Ãæ -->
+		<!-- å¯¼èˆªè§„åˆ™çš„è¾“å…¥é¡µé¢ -->
 		<from-view-id>/mgrKind.jsp</from-view-id>
 		<navigation-case>
 			<from-outcome>success</from-outcome>
@@ -130,7 +130,7 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<!-- µ¼º½¹æÔòµÄÊäÈëÒ³Ãæ -->
+		<!-- å¯¼èˆªè§„åˆ™çš„è¾“å…¥é¡µé¢ -->
 		<from-view-id>/viewDetail.jsp</from-view-id>
 		<navigation-case>
 			<from-outcome>success</from-outcome>
@@ -142,7 +142,7 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<!-- µ¼º½¹æÔòµÄÊäÈëÒ³Ãæ -->
+		<!-- å¯¼èˆªè§„åˆ™çš„è¾“å…¥é¡µé¢ -->
 		<from-view-id>/mgrItem.jsp</from-view-id>
 		<navigation-case>
 			<from-outcome>success</from-outcome>
@@ -154,16 +154,16 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<!-- ´ÓÈÎºÎÊÓÍ¼Ò³Ãæ¿ªÊ¼ -->
+		<!-- ä»Žä»»ä½•è§†å›¾é¡µé¢å¼€å§‹ -->
 		<from-view-id>*</from-view-id>
 		<navigation-case>
-			<!-- ¶¨Òålogoutµ¼º½µ½/login.jspÒ³Ãæ -->
+			<!-- å®šä¹‰logoutå¯¼èˆªåˆ°/login.jspé¡µé¢ -->
 			<from-outcome>logout</from-outcome>
 			<to-view-id>/login.jsp</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<lifecycle>
-		<!-- ÅäÖÃÉúÃüÖÜÆÚÊÂ¼þ¼àÌýÆ÷ -->
+		<!-- é…ç½®ç”Ÿå‘½å‘¨æœŸäº‹ä»¶ç›‘å¬å™¨ -->
 		<phase-listener>org.crazyit.auction.jsf.listener.LoggedInCheck</phase-listener>  
 	</lifecycle>
 </faces-config>

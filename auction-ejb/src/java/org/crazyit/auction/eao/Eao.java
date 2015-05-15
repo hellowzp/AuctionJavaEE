@@ -4,7 +4,7 @@ import java.util.*;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -15,59 +15,59 @@ import java.util.*;
 public interface Eao
 {
 	/**
-	 * ²éÕÒÊµÌå
-	 * @param <T> ¶¯Ì¬´«ÈëÊµÌåÀà
-	 * @param entityClass ÊµÌåÀà
-	 * @param pk Ö÷¼ü
-	 * @return ¸ù¾İÖ¸¶¨Ö÷¼ü·µ»ØµÄÊµÌå
+	 * æŸ¥æ‰¾å®ä½“
+	 * @param <T> åŠ¨æ€ä¼ å…¥å®ä½“ç±»
+	 * @param entityClass å®ä½“ç±»
+	 * @param pk ä¸»é”®
+	 * @return æ ¹æ®æŒ‡å®šä¸»é”®è¿”å›çš„å®ä½“
 	 */
 	<T> T get(Class<T> entityClass, Object pk);
 	/**
-	 * ±£´æÊµÌå
-	 * @param entity ĞèÒª±£´æµÄÊµÌå
+	 * ä¿å­˜å®ä½“
+	 * @param entity éœ€è¦ä¿å­˜çš„å®ä½“
 	 */
 	void save(Object entity);
 	/**
-	 * ¸üĞÂÊµÌå
-	 * @param entity ĞèÒª¸üĞÂµÄÊµÌå
+	 * æ›´æ–°å®ä½“
+	 * @param entity éœ€è¦æ›´æ–°çš„å®ä½“
 	 */
 	void update(Object entity);
 	/**
-	 * É¾³ıÊµÌå
-	 * @param entityClass ĞèÒªÉ¾³ıÊµÌåÀà
-	 * @param pk ĞèÒªÉ¾³ıµÄÊµÌåÖ÷¼ü
+	 * åˆ é™¤å®ä½“
+	 * @param entityClass éœ€è¦åˆ é™¤å®ä½“ç±»
+	 * @param pk éœ€è¦åˆ é™¤çš„å®ä½“ä¸»é”®
 	 */
 	void delete(Class<?> entityClass, Object pk);
 
 	/**
-	 * Ö´ĞĞ²éÑ¯µÄ·½·¨
-	 * @param entityClass ÊµÌåÀà
-	 * @param whereJpql Ö¸¶¨²éÑ¯·µ»ØµÄµÚÒ»Ìõ¼ÇÂ¼
-	 * @param orderBy ÓÃÓÚÅÅĞò£¬Èç¹ûÎŞĞèÅÅĞò¸Ã²ÎÊıÉèÎªnull.Map¶ÔÏóµÄkeyÎªÊµÌå×Ö¶ÎÃû£¬valueÎªASC/DESC£¬Èç£º
+	 * æ‰§è¡ŒæŸ¥è¯¢çš„æ–¹æ³•
+	 * @param entityClass å®ä½“ç±»
+	 * @param whereJpql æŒ‡å®šæŸ¥è¯¢è¿”å›çš„ç¬¬ä¸€æ¡è®°å½•
+	 * @param orderBy ç”¨äºæ’åºï¼Œå¦‚æœæ— éœ€æ’åºè¯¥å‚æ•°è®¾ä¸ºnull.Mapå¯¹è±¡çš„keyä¸ºå®ä½“å­—æ®µåï¼Œvalueä¸ºASC/DESCï¼Œå¦‚ï¼š
 	 * LinkedHashMap<String, String> orderBy = new LinkedHashMap<String, String>();
-	 * orderBy.put("itemName", "DESC");±íÃ÷¸ù¾İitemName½µĞòÅÅÁĞ£»
-	 * Èç¹û·ÅÈë¶à¸ökey-value¶Ô£¬ÔòµÚÒ»´Î·ÅÈëµÄkey-value¶ÔÎªÊ×Òª¹Ø¼ü×Ö£¬
-	 * µÚ¶ş´Î·ÅÈëµÄkey-value¶ÔÎª´ÎÒªÅÅĞò¹Ø¼ü×Ö¡­¡­
-	 * @param args ×÷ÎªÎªJPQL²éÑ¯×Ö·û´®µÄ²ÎÊıµÄÖµ
-	 * @return ·µ»Ø²éÑ¯µÃµ½µÄÊµÌåList
+	 * orderBy.put("itemName", "DESC");è¡¨æ˜æ ¹æ®itemNameé™åºæ’åˆ—ï¼›
+	 * å¦‚æœæ”¾å…¥å¤šä¸ªkey-valueå¯¹ï¼Œåˆ™ç¬¬ä¸€æ¬¡æ”¾å…¥çš„key-valueå¯¹ä¸ºé¦–è¦å…³é”®å­—ï¼Œ
+	 * ç¬¬äºŒæ¬¡æ”¾å…¥çš„key-valueå¯¹ä¸ºæ¬¡è¦æ’åºå…³é”®å­—â€¦â€¦
+	 * @param args ä½œä¸ºä¸ºJPQLæŸ¥è¯¢å­—ç¬¦ä¸²çš„å‚æ•°çš„å€¼
+	 * @return è¿”å›æŸ¥è¯¢å¾—åˆ°çš„å®ä½“List
 	 */
 	<T> List<T> getResultList(Class<T> entityClass
 		, String whereJpql
 		, LinkedHashMap<String , String> orderBy
 		, Object... args);
 	/**
-	 * Ö´ĞĞ²éÑ¯¡¢²¢½øĞĞ·ÖÒ³µÄ·½·¨
-	 * @param entityClass ÊµÌåÀà
-	 * @param whereJpql Ö¸¶¨²éÑ¯·µ»ØµÄµÚÒ»Ìõ¼ÇÂ¼
-	 * @param firstResult Ö¸¶¨²éÑ¯·µ»ØµÄµÚÒ»Ìõ¼ÇÂ¼
-	 * @param maxResult ÉèÖÃ²éÑ¯×î¶à·µ»Ø¶àÉÙ¼¸Ìõ¼ÇÂ¼
-	 * @param orderBy ÓÃÓÚÅÅĞò£¬Èç¹ûÎŞĞèÅÅĞò¸Ã²ÎÊıÉèÎªnull.Map¶ÔÏóµÄkeyÎªÊµÌå×Ö¶ÎÃû£¬valueÎªASC/DESC£¬Èç£º
+	 * æ‰§è¡ŒæŸ¥è¯¢ã€å¹¶è¿›è¡Œåˆ†é¡µçš„æ–¹æ³•
+	 * @param entityClass å®ä½“ç±»
+	 * @param whereJpql æŒ‡å®šæŸ¥è¯¢è¿”å›çš„ç¬¬ä¸€æ¡è®°å½•
+	 * @param firstResult æŒ‡å®šæŸ¥è¯¢è¿”å›çš„ç¬¬ä¸€æ¡è®°å½•
+	 * @param maxResult è®¾ç½®æŸ¥è¯¢æœ€å¤šè¿”å›å¤šå°‘å‡ æ¡è®°å½•
+	 * @param orderBy ç”¨äºæ’åºï¼Œå¦‚æœæ— éœ€æ’åºè¯¥å‚æ•°è®¾ä¸ºnull.Mapå¯¹è±¡çš„keyä¸ºå®ä½“å­—æ®µåï¼Œvalueä¸ºASC/DESCï¼Œå¦‚ï¼š
 	 * LinkedHashMap<String, String> orderBy = new LinkedHashMap<String, String>();
-	 * orderBy.put("itemName", "DESC");±íÃ÷¸ù¾İitemName½µĞòÅÅÁĞ£»
-	 * Èç¹û·ÅÈë¶à¸ökey-value¶Ô£¬ÔòµÚÒ»´Î·ÅÈëµÄkey-value¶ÔÎªÊ×Òª¹Ø¼ü×Ö£¬
-	 * µÚ¶ş´Î·ÅÈëµÄkey-value¶ÔÎª´ÎÒªÅÅĞò¹Ø¼ü×Ö¡­¡­
-	 * @param args ×÷ÎªÎªJPQL²éÑ¯×Ö·û´®µÄ²ÎÊıµÄÖµ
-	 * @return ·µ»Ø²éÑ¯µÃµ½µÄÊµÌåList
+	 * orderBy.put("itemName", "DESC");è¡¨æ˜æ ¹æ®itemNameé™åºæ’åˆ—ï¼›
+	 * å¦‚æœæ”¾å…¥å¤šä¸ªkey-valueå¯¹ï¼Œåˆ™ç¬¬ä¸€æ¬¡æ”¾å…¥çš„key-valueå¯¹ä¸ºé¦–è¦å…³é”®å­—ï¼Œ
+	 * ç¬¬äºŒæ¬¡æ”¾å…¥çš„key-valueå¯¹ä¸ºæ¬¡è¦æ’åºå…³é”®å­—â€¦â€¦
+	 * @param args ä½œä¸ºä¸ºJPQLæŸ¥è¯¢å­—ç¬¦ä¸²çš„å‚æ•°çš„å€¼
+	 * @return è¿”å›æŸ¥è¯¢å¾—åˆ°çš„å®ä½“List
 	 */
 	<T> List<T> getResultList(Class<T> entityClass
 		, String whereJpql

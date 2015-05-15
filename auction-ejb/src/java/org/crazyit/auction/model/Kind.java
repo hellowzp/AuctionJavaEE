@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.*;
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -16,31 +16,31 @@ import java.util.*;
 @Table(name="kind")
 public class Kind
 {
-	//±êÊ¶ÊôĞÔ
+	//æ ‡è¯†å±æ€§
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="kind_id")
 	private Integer id;
-	//ÖÖÀàÃû
+	//ç§ç±»å
 	@Column(name="kind_name" , length=50
 		, nullable=false)
 	private String kindName;
-	//ÖÖÀàÃèÊö
+	//ç§ç±»æè¿°
 	@Column(name="kind_desc" , length=255
 		, nullable=false)
 	private String kindDesc;
-	/*¸ÃÖÖÀàÏÂµÄËùÓĞÎïÆ·
-	  ÉèÖÃÁËmappedByÊôĞÔ±íÃ÷KindÊµÌå²»¿ØÖÆ¹ØÁª¹ØÏµ£¬
-	  Òò´Ë²»ÄÜÔö¼Ó@JoinTableºÍ@JoinColumnĞŞÊÎ*/
+	/*è¯¥ç§ç±»ä¸‹çš„æ‰€æœ‰ç‰©å“
+	  è®¾ç½®äº†mappedByå±æ€§è¡¨æ˜Kindå®ä½“ä¸æ§åˆ¶å…³è”å…³ç³»ï¼Œ
+	  å› æ­¤ä¸èƒ½å¢åŠ @JoinTableå’Œ@JoinColumnä¿®é¥°*/
 	@OneToMany(cascade=CascadeType.ALL , mappedBy="kind"
 		, targetEntity=Item.class)
 	private Set<Item> items = new HashSet<Item>();
 
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public Kind()
 	{
 	}
-	//³õÊ¼»¯È«²¿»ù±¾ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨åŸºæœ¬å±æ€§çš„æ„é€ å™¨
 	public Kind(Integer id , String kindName , String kindDesc)
 	{
 		this.id = id;
@@ -48,7 +48,7 @@ public class Kind
 		this.kindDesc = kindDesc;
 	}
 
-	//idÊôĞÔµÄsetterºÍgetter·½·¨
+	//idå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(Integer id)
 	{
 		this.id = id;
@@ -58,7 +58,7 @@ public class Kind
 		return this.id;
 	}
 
-	//kindNameÊôĞÔµÄsetterºÍgetter·½·¨
+	//kindNameå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setKindName(String kindName)
 	{
 		this.kindName = kindName;
@@ -68,7 +68,7 @@ public class Kind
 		return this.kindName;
 	}
 
-	//kindDescÊôĞÔµÄsetterºÍgetter·½·¨
+	//kindDescå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setKindDesc(String kindDesc)
 	{
 		this.kindDesc = kindDesc;
@@ -78,7 +78,7 @@ public class Kind
 		return this.kindDesc;
 	}
 
-	//itemsÊôĞÔµÄsetterºÍgetter·½·¨
+	//itemså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setItems(Set<Item> items)
 	{
 		this.items = items;

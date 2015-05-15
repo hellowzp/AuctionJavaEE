@@ -6,7 +6,7 @@ import javax.persistence.*;
 import org.crazyit.auction.eao.Eao;
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -20,11 +20,11 @@ public abstract class CrazyItEao
 	@PersistenceContext 
 	private EntityManager em;
 	/**
-	 * ²éÕÒÊµÌå
-	 * @param <T> ¶¯Ì¬´«ÈëÊµÌåÀà
-	 * @param entityClass ÊµÌåÀà
-         * @param primaryKey Ö÷¼ü
-	 * @return ¸ù¾İÖ¸¶¨Ö÷¼ü·µ»ØµÄÊµÌå
+	 * æŸ¥æ‰¾å®ä½“
+	 * @param <T> åŠ¨æ€ä¼ å…¥å®ä½“ç±»
+	 * @param entityClass å®ä½“ç±»
+         * @param primaryKey ä¸»é”®
+	 * @return æ ¹æ®æŒ‡å®šä¸»é”®è¿”å›çš„å®ä½“
 	 */
         @Override
 	public <T> T get(Class <T> entityClass, Object primaryKey)
@@ -33,8 +33,8 @@ public abstract class CrazyItEao
 		return obj;
 	}
 	/**
-	 * ±£´æÊµÌå
-	 * @param entity ĞèÒª±£´æµÄÊµÌå
+	 * ä¿å­˜å®ä½“
+	 * @param entity éœ€è¦ä¿å­˜çš„å®ä½“
 	 */
         @Override
 	public void save(Object entity)
@@ -42,8 +42,8 @@ public abstract class CrazyItEao
 		em.persist(entity);
 	}
 	/**
-	 * ¸üĞÂÊµÌå
-	 * @param entity ĞèÒª±£´æµÄÊµÌå
+	 * æ›´æ–°å®ä½“
+	 * @param entity éœ€è¦ä¿å­˜çš„å®ä½“
 	 */
         @Override
 	public void update(Object entity)
@@ -51,9 +51,9 @@ public abstract class CrazyItEao
 		em.merge(entity);
 	}
 	/**
-	 * É¾³ıÊµÌå
-	 * @param entityClass ĞèÒªÉ¾³ıÊµÌåÀà
-	 * @param primaryKey ĞèÒªÉ¾³ıµÄÊµÌåÖ÷¼ü
+	 * åˆ é™¤å®ä½“
+	 * @param entityClass éœ€è¦åˆ é™¤å®ä½“ç±»
+	 * @param primaryKey éœ€è¦åˆ é™¤çš„å®ä½“ä¸»é”®
 	 */
         @Override
 	public void delete(Class entityClass, Object primaryKey)
@@ -67,17 +67,17 @@ public abstract class CrazyItEao
 		, LinkedHashMap<String, String> orderBy
 		, Object... args)
 	{
-		//»ñÈ¡ÊµÌåÀàµÄÊµÌåÃû¡£Ä¬ÈÏÇé¿öÏÂ£¬ÊµÌåÃûºÍÀàÃûÏàÍ¬
+		//è·å–å®ä½“ç±»çš„å®ä½“åã€‚é»˜è®¤æƒ…å†µä¸‹ï¼Œå®ä½“åå’Œç±»åç›¸åŒ
 		String entityName = entityClass.getSimpleName();
-		//´´½¨²éÑ¯
+		//åˆ›å»ºæŸ¥è¯¢
 		Query query = em.createQuery("select o from "+ entityName
 			+ " as o " + whereJpql + buildOrderby(orderBy));
-		//Îª²éÑ¯×Ö·û´®ÖĞ²ÎÊıÉèÖÃÖµ
+		//ä¸ºæŸ¥è¯¢å­—ç¬¦ä¸²ä¸­å‚æ•°è®¾ç½®å€¼
 		for (int i = 0 ; i < args.length ; i++)
 		{
 			query.setParameter(i + 1 , args[i]);
 		}
-		//·µ»Ø½á¹û¼¯
+		//è¿”å›ç»“æœé›†
 		return (List<T>)query.getResultList();
 	}
         
@@ -89,25 +89,25 @@ public abstract class CrazyItEao
 		, LinkedHashMap<String, String> orderBy
 		, Object... args)
 	{
-		//»ñÈ¡ÊµÌåÀàµÄÊµÌåÃû¡£Ä¬ÈÏÇé¿öÏÂ£¬ÊµÌåÃûºÍÀàÃûÏàÍ¬
+		//è·å–å®ä½“ç±»çš„å®ä½“åã€‚é»˜è®¤æƒ…å†µä¸‹ï¼Œå®ä½“åå’Œç±»åç›¸åŒ
 		String entityName = entityClass.getSimpleName();
-		//´´½¨²éÑ¯
+		//åˆ›å»ºæŸ¥è¯¢
 		Query query = em.createQuery("select o from "+ entityName
 			+ " as o " + whereJpql + buildOrderby(orderBy));
-		//Îª²éÑ¯×Ö·û´®ÖĞ²ÎÊıÉèÖÃÖµ
+		//ä¸ºæŸ¥è¯¢å­—ç¬¦ä¸²ä¸­å‚æ•°è®¾ç½®å€¼
 		for (int i = 0 ; i < args.length ; i++)
 		{
 			query.setParameter(i + 1 , args[i]);
 		}
-		//¶Ô²éÑ¯½á¹û¼¯½øĞĞ·ÖÒ³
+		//å¯¹æŸ¥è¯¢ç»“æœé›†è¿›è¡Œåˆ†é¡µ
 		query.setMaxResults(maxResult).setFirstResult(firstResult);
-		//·µ»Ø½á¹û¼¯
+		//è¿”å›ç»“æœé›†
 		return (List<T>)query.getResultList();
 	}
 	
 	/**
-	 * ¹¹½¨ÅÅĞò×Ó¾ä
-	 * @param orderby LinkedHashMap¶ÔÏó£¬Ã¿¸ökey-value¶ÔÖ¸¶¨Ò»¸öÅÅĞòÌõ¼ş
+	 * æ„å»ºæ’åºå­å¥
+	 * @param orderby LinkedHashMapå¯¹è±¡ï¼Œæ¯ä¸ªkey-valueå¯¹æŒ‡å®šä¸€ä¸ªæ’åºæ¡ä»¶
 	 */ 
 	private static String buildOrderby(LinkedHashMap<String , String>
 		 orderby)
@@ -115,10 +115,10 @@ public abstract class CrazyItEao
 		StringBuilder out = new StringBuilder();
 		if(orderby != null && orderby.size() > 0)
 		{
-			//Ìí¼Óorder by ×Ó¾ä
+			//æ·»åŠ order by å­å¥
 			out.append(" order by ");
-			//±éÀúLinkedHashMapÖĞµÄÃ¿¸ökey-value¶Ô£¬
-			//Ã¿¸ökey-value¶ÔÉú³ÉÒ»¸öÅÅĞòÌõ¼ş
+			//éå†LinkedHashMapä¸­çš„æ¯ä¸ªkey-valueå¯¹ï¼Œ
+			//æ¯ä¸ªkey-valueå¯¹ç”Ÿæˆä¸€ä¸ªæ’åºæ¡ä»¶
 			for(String key : orderby.keySet())
 			{
 			out.append("o.").append(key).append(" ").append(orderby.get(key)).append(",");

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.*;
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -16,34 +16,34 @@ import java.util.*;
 @Table(name="state")
 public class State
 {
-	//±êÊ¶ÊôĞÔ
+	//æ ‡è¯†å±æ€§
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="state_id")
 	private Integer id;
-	//ÎïÆ·µÄ×´Ì¬Ãû
+	//ç‰©å“çš„çŠ¶æ€å
 	@Column(name="state_name" , length=10
 		, nullable=false)
 	private String stateName;
-	/*¸Ã×´Ì¬ÏÂµÄËùÓĞÎïÆ·
-	  ÉèÖÃÁËmappedByÊôĞÔ±íÃ÷StateÊµÌå²»¿ØÖÆ¹ØÁª¹ØÏµ£¬
-	  Òò´Ë²»ÄÜÔö¼Ó@JoinTableºÍ@JoinColumnĞŞÊÎ*/
+	/*è¯¥çŠ¶æ€ä¸‹çš„æ‰€æœ‰ç‰©å“
+	  è®¾ç½®äº†mappedByå±æ€§è¡¨æ˜Stateå®ä½“ä¸æ§åˆ¶å…³è”å…³ç³»ï¼Œ
+	  å› æ­¤ä¸èƒ½å¢åŠ @JoinTableå’Œ@JoinColumnä¿®é¥°*/
 	@OneToMany(cascade=CascadeType.ALL , mappedBy="itemState"
 		, targetEntity=Item.class)
 	private Set<Item> items = new HashSet<Item>();
 
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public State()
 	{
 	}
-	//³õÊ¼»¯È«²¿»ù±¾ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨åŸºæœ¬å±æ€§çš„æ„é€ å™¨
 	public State(Integer id , String stateName)
 	{
 		this.id = id;
 		this.stateName = stateName;
 	}
 
-	//idÊôĞÔµÄsetterºÍgetter·½·¨
+	//idå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(Integer id)
 	{
 		this.id = id;
@@ -53,7 +53,7 @@ public class State
 		return this.id;
 	}
 
-	//stateNameÊôĞÔµÄsetterºÍgetter·½·¨
+	//stateNameå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setStateName(String stateName)
 	{
 		this.stateName = stateName;
@@ -63,7 +63,7 @@ public class State
 		return this.stateName;
 	}
 
-	//itemsÊôĞÔµÄsetterºÍgetter·½·¨
+	//itemså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setItems(Set<Item> items)
 	{
 		this.items = items;

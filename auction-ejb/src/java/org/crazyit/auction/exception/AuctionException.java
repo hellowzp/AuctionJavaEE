@@ -3,7 +3,7 @@ package org.crazyit.auction.exception;
 import javax.ejb.*;
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -14,11 +14,11 @@ import javax.ejb.*;
 @ApplicationException(rollback=true)
 public class AuctionException extends RuntimeException
 {
-	//¶¨ÒåÒ»¸öÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//å®šä¹‰ä¸€ä¸ªæ— å‚æ•°çš„æ„é€ å™¨
 	public AuctionException()
 	{
 	}
-	//¶¨ÒåÒ»¸ö´ømessage²ÎÊıµÄ¹¹Ôì²ÎÊı
+	//å®šä¹‰ä¸€ä¸ªå¸¦messageå‚æ•°çš„æ„é€ å‚æ•°
 	public AuctionException(String message)
 	{
 		super(message);

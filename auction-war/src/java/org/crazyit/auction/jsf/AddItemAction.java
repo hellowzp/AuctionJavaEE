@@ -9,7 +9,7 @@ import org.crazyit.auction.exception.AuctionException;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -27,25 +27,25 @@ public class AddItemAction
 	private int kind;
 	private String vercode;
 	private String tipInfo;
-	//ÒÀÀµ×¢ÈëÒµÎñÂß¼­×é¼ş£¨Session Bean£©
+	//ä¾èµ–æ³¨å…¥ä¸šåŠ¡é€»è¾‘ç»„ä»¶ï¼ˆSession Beanï¼‰
 	@EJB(beanName="auctionManager")
 	private AuctionManager am;
-	//´¦ÀíÓÃ»§ÇëÇóµÄexecute·½·¨
+	//å¤„ç†ç”¨æˆ·è¯·æ±‚çš„executeæ–¹æ³•
 	public String proAdd() throws Exception
 	{
-		//ÔÚJSFÖĞ·ÃÎÊSession·¶Î§µÄÊı¾İ
+		//åœ¨JSFä¸­è®¿é—®SessionèŒƒå›´çš„æ•°æ®
 		Map<String , Object> session = FacesContext
 			.getCurrentInstance()
 			.getExternalContext()
 			.getSessionMap();
 		String ver2 = (String)session.get("rand");
-		//Ç¿ÖÆÏµÍ³¸ÕÉú³ÉµÄËæ»úÑéÖ¤ÂëÊ§Ğ§
+		//å¼ºåˆ¶ç³»ç»Ÿåˆšç”Ÿæˆçš„éšæœºéªŒè¯ç å¤±æ•ˆ
 		session.put("rand" , null);
 		Integer userId = (Integer)session.get("userId");
-		//Èç¹ûÓÃ»§ÊäÈëµÄÑéÖ¤ÂëÓëÏµÍ³Ëæ»ú²úÉúµÄÑéÖ¤ÂëÏàÍ¬
+		//å¦‚æœç”¨æˆ·è¾“å…¥çš„éªŒè¯ç ä¸ç³»ç»Ÿéšæœºäº§ç”Ÿçš„éªŒè¯ç ç›¸åŒ
 		if (vercode.equalsIgnoreCase(ver2))
 		{
-			//¸ù¾İÓÃ»§Ñ¡ÔñÓĞĞ§Ê±¼äÑ¡Ïî£¬Ö¸¶¨Êµ¼ÊµÄÓĞĞ§Ê±¼ä
+			//æ ¹æ®ç”¨æˆ·é€‰æ‹©æœ‰æ•ˆæ—¶é—´é€‰é¡¹ï¼ŒæŒ‡å®šå®é™…çš„æœ‰æ•ˆæ—¶é—´
 			switch(avail)
 			{
 				case 6 :
@@ -58,20 +58,20 @@ public class AddItemAction
 					avail = 365;
 					break;
 			}
-			//Ìí¼ÓÎïÆ·
+			//æ·»åŠ ç‰©å“
 			am.addItem(name , desc , remark 
 				, initPrice ,avail , kind, userId);
-			setTipInfo("ÎïÆ·Ìí¼Ó³É¹¦£¡");
-			//½«ÊÕ¼¯ÓÃ»§ÊäÈëĞÅÏ¢µÄ±íµ¥ÓòÇå¿Õ
+			setTipInfo("ç‰©å“æ·»åŠ æˆåŠŸï¼");
+			//å°†æ”¶é›†ç”¨æˆ·è¾“å…¥ä¿¡æ¯çš„è¡¨å•åŸŸæ¸…ç©º
 			return "succss";
 		}
 		else
 		{
-			setTipInfo("ÑéÖ¤Âë²»Æ¥Åä,ÇëÖØĞÂÊäÈë");
+			setTipInfo("éªŒè¯ç ä¸åŒ¹é…,è¯·é‡æ–°è¾“å…¥");
 			return "input";
 		}
 	}
-	//nameÊôĞÔµÄsetterºÍgetter·½·¨
+	//nameå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setName(String name)
 	{
 		this.name = name;
@@ -80,7 +80,7 @@ public class AddItemAction
 	{
 		 return this.name;
 	}
-	//descÊôĞÔµÄsetterºÍgetter·½·¨
+	//descå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setDesc(String desc)
 	{
 		this.desc = desc;
@@ -89,7 +89,7 @@ public class AddItemAction
 	{
 		 return this.desc;
 	}
-	//remarkÊôĞÔµÄsetterºÍgetter·½·¨
+	//remarkå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setRemark(String remark)
 	{
 		this.remark = remark;
@@ -98,7 +98,7 @@ public class AddItemAction
 	{
 		 return this.remark;
 	}
-	//initPriceÊôĞÔµÄsetterºÍgetter·½·¨
+	//initPriceå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setInitPrice(double initPrice)
 	{
 		this.initPrice = initPrice;
@@ -107,7 +107,7 @@ public class AddItemAction
 	{
 		 return this.initPrice;
 	}
-	//availÊôĞÔµÄsetterºÍgetter·½·¨
+	//availå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setAvail(int avail)
 	{
 		this.avail = avail;
@@ -116,7 +116,7 @@ public class AddItemAction
 	{
 		 return this.avail;
 	}
-	//kindÊôĞÔµÄsetterºÍgetter·½·¨
+	//kindå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setKind(int kind)
 	{
 		this.kind = kind;
@@ -125,7 +125,7 @@ public class AddItemAction
 	{
 		 return this.kind;
 	}
-	//vercodeÊôĞÔµÄsetterºÍgetter·½·¨
+	//vercodeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setVercode(String vercode)
 	{
 		this.vercode = vercode;
@@ -134,7 +134,7 @@ public class AddItemAction
 	{
 		 return this.vercode;
 	}
-	//errInfoµÄsetterºÍgetter·½·¨
+	//errInfoçš„setterå’Œgetteræ–¹æ³•
 	public void setTipInfo(String tipInfo)
 	{
 		this.tipInfo = tipInfo;

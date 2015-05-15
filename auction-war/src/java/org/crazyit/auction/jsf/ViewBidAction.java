@@ -10,7 +10,7 @@ import org.crazyit.auction.model.*;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -21,23 +21,23 @@ import org.crazyit.auction.model.*;
 public class ViewBidAction
 {
 	private List<Bid> bids;
-	//ÒÀÀµ×¢ÈëÒµÎñÂß¼­×é¼ş£¨Session Bean£©
+	//ä¾èµ–æ³¨å…¥ä¸šåŠ¡é€»è¾‘ç»„ä»¶ï¼ˆSession Beanï¼‰
 	@EJB(beanName="auctionManager")
 	private AuctionManager am;
-	//bidsÊôĞÔµÄsetterºÍgetter·½·¨
+	//bidså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setBids(List<Bid> bids)
 	{
 		this.bids = bids;
 	}
 	public List<Bid> getBids()
 	{
-		//ÔÚJSFÖĞ·ÃÎÊSession·¶Î§µÄÊı¾İ
+		//åœ¨JSFä¸­è®¿é—®SessionèŒƒå›´çš„æ•°æ®
 		Map<String , Object> session = FacesContext
 			.getCurrentInstance()
 			.getExternalContext()
 			.getSessionMap();
 		Integer userId = (Integer)session.get("userId");
-		//µ÷ÓÃÒµÎñÂß¼­·½·¨³õÊ¼»¯failItemsÊôĞÔ
+		//è°ƒç”¨ä¸šåŠ¡é€»è¾‘æ–¹æ³•åˆå§‹åŒ–failItemså±æ€§
 		return am.getBidByUser(userId);
 	}
 }

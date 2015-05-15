@@ -9,7 +9,7 @@ import org.crazyit.auction.exception.AuctionException;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -23,18 +23,18 @@ public class LoginAction
 	private String password;
 	private String vercode;
 	private String errInfo;
-	//ÒÀÀµ×¢ÈëÒµÎñÂß¼­×é¼ş£¨Session Bean£©
+	//ä¾èµ–æ³¨å…¥ä¸šåŠ¡é€»è¾‘ç»„ä»¶ï¼ˆSession Beanï¼‰
 	@EJB(beanName="auctionManager")
 	private AuctionManager am;
 	public String execute() throws Exception
 	{
-		//ÔÚJSFÖĞ·ÃÎÊSession·¶Î§µÄÊı¾İ
+		//åœ¨JSFä¸­è®¿é—®SessionèŒƒå›´çš„æ•°æ®
 		Map<String , Object> session = FacesContext
 			.getCurrentInstance()
 			.getExternalContext()
 			.getSessionMap();
 		String ver2 = (String )session.get("rand");
-		//Çå¿ÕHttp SessionÖĞµÄËæ»úÑéÖ¤Âë×Ö·û´®¡£
+		//æ¸…ç©ºHttp Sessionä¸­çš„éšæœºéªŒè¯ç å­—ç¬¦ä¸²ã€‚
 		session.put("rand" , null);
 		if (vercode.equalsIgnoreCase(ver2))
 		{
@@ -46,17 +46,17 @@ public class LoginAction
 			}
 			else
 			{
-				setErrInfo("ÓÃ»§Ãû/ÃÜÂë²»Æ¥Åä");
+				setErrInfo("ç”¨æˆ·å/å¯†ç ä¸åŒ¹é…");
 				return "failure";
 			}
 		}
 		else
 		{
-			setErrInfo("ÑéÖ¤Âë²»Æ¥Åä,ÇëÖØĞÂÊäÈë");
+			setErrInfo("éªŒè¯ç ä¸åŒ¹é…,è¯·é‡æ–°è¾“å…¥");
 			return "failure";
 		}
 	}
-	//usernameÊôĞÔµÄsetterºÍgetter·½·¨
+	//usernameå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setUsername(String username)
 	{
 		this.username = username;
@@ -66,7 +66,7 @@ public class LoginAction
 		return this.username;
 	}
 
-	//passwordÊôĞÔµÄsetterºÍgetter·½·¨
+	//passwordå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setPassword(String password)
 	{
 		this.password = password;
@@ -76,7 +76,7 @@ public class LoginAction
 		return this.password;
 	}
 
-	//vercodeÊôĞÔµÄsetterºÍgetter·½·¨
+	//vercodeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setVercode(String vercode)
 	{
 		this.vercode = vercode;
@@ -85,7 +85,7 @@ public class LoginAction
 	{
 		return this.vercode;
 	}
-	//errInfoµÄsetterºÍgetter·½·¨
+	//errInfoçš„setterå’Œgetteræ–¹æ³•
 	public void setErrInfo(String errInfo)
 	{
 		this.errInfo = errInfo;

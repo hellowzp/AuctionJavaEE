@@ -11,7 +11,7 @@ import org.crazyit.auction.model.*;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -23,17 +23,17 @@ public class MgrItemAction
 {
 	private List<Item> items;
 	private List<SelectItem> kinds;
-	//ÒÀÀµ×¢ÈëÒµÎñÂß¼­×é¼ş£¨Session Bean£©
+	//ä¾èµ–æ³¨å…¥ä¸šåŠ¡é€»è¾‘ç»„ä»¶ï¼ˆSession Beanï¼‰
 	@EJB(beanName="auctionManager")
 	private AuctionManager am;
-	//itemsÊôĞÔµÄsetterºÍgetter·½·¨
+	//itemså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setItems(List<Item> items)
 	{
 		this.items = items;
 	}
 	public List<Item> getItems()
 	{
-		//ÔÚJSFÖĞ·ÃÎÊSession·¶Î§µÄÊı¾İ
+		//åœ¨JSFä¸­è®¿é—®SessionèŒƒå›´çš„æ•°æ®
 		Map<String , Object> session = FacesContext
 			.getCurrentInstance()
 			.getExternalContext()
@@ -41,7 +41,7 @@ public class MgrItemAction
 		Integer userId = (Integer)session.get("userId");
 		return am.getItemsByOwner(userId);
 	}
-	//kindsÊôĞÔµÄsetterºÍgetter·½·¨
+	//kindså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setKinds(List<SelectItem> kinds)
 	{
 		this.kinds = kinds;
@@ -49,7 +49,7 @@ public class MgrItemAction
 	public List<SelectItem> getKinds()
 	{
 		 List<Kind> kinds = am.getAllKind();
-		 //½«Kind¶ÔÏóµÄ¼¯ºÏ×ª»»ÎªSelectItemµÄ¼¯ºÏ¡£
+		 //å°†Kindå¯¹è±¡çš„é›†åˆè½¬æ¢ä¸ºSelectItemçš„é›†åˆã€‚
 		 List<SelectItem> kindItems = new ArrayList<SelectItem>();
 		 for (int i = 0 ; i < kinds.size() ; i++)
 		 {

@@ -7,7 +7,7 @@ import org.crazyit.auction.util.*;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -16,44 +16,44 @@ import org.crazyit.auction.util.*;
  * @version  1.0
  */
 @MessageDriven(activationConfig=
-/* Ö¸¶¨MDBËù¼àÌıÏûÏ¢Ä¿µÄµÄÀàĞÍ */
+/* æŒ‡å®šMDBæ‰€ç›‘å¬æ¶ˆæ¯ç›®çš„çš„ç±»å‹ */
 {@ActivationConfigProperty(propertyName="destinationType"
 	, propertyValue="javax.jms.Queue"), 
 @ActivationConfigProperty(propertyName="acknowledgeMode"
 	, propertyValue="Auto-acknowledge"),
-/* Ö¸¶¨MDBËù¼àÌıµÄÏûÏ¢Ä¿µÄµÄJNDI°ó¶¨Ãû */
+/* æŒ‡å®šMDBæ‰€ç›‘å¬çš„æ¶ˆæ¯ç›®çš„çš„JNDIç»‘å®šå */
 @ActivationConfigProperty(propertyName="destination" 
 	, propertyValue="AuctionQueue")
 }
-/* ÈÃMDBµÄBeanÊµÏÖÀà¼ä½ÓµØÊµÏÖMessageListener½Ó¿Ú */
+/* è®©MDBçš„Beanå®ç°ç±»é—´æ¥åœ°å®ç°MessageListeneræ¥å£ */
 ,messageListenerInterface=javax.jms.MessageListener.class 
-/* Ö¸¶¨MDBËù¼àÌıµÄÏûÏ¢Ä¿µÄµÄJNDI°ó¶¨Ãû */
+/* æŒ‡å®šMDBæ‰€ç›‘å¬çš„æ¶ˆæ¯ç›®çš„çš„JNDIç»‘å®šå */
 ,mappedName="AuctionQueue"
 )
 public class MailMDB 
 {
-	//ÊµÏÖonMessage·½·¨¡ª¡ªµ±JMSÏûÏ¢±»ËÍ´ïÏûÏ¢Ä¿µÄÊ±£¬
-	//¸Ã·½·¨±»´¥·¢
+	//å®ç°onMessageæ–¹æ³•â€•â€•å½“JMSæ¶ˆæ¯è¢«é€è¾¾æ¶ˆæ¯ç›®çš„æ—¶ï¼Œ
+	//è¯¥æ–¹æ³•è¢«è§¦å‘
 	public void onMessage(Message rawMsg)
 	{
 		try
 		{
 			if (rawMsg instanceof MapMessage)
 			{
-				//½«ÏûÏ¢Ç¿ÖÆ×ª»»ÎªMapMessage
+				//å°†æ¶ˆæ¯å¼ºåˆ¶è½¬æ¢ä¸ºMapMessage
 				MapMessage msg = (MapMessage)rawMsg;
 				String mailTo = msg.getString("mailTo");
 				String bidUser = msg.getString("bidUser");
 				String itemName = msg.getString("itemName");
-				//×¼±¸·¢ËÍÓÊ¼ş
+				//å‡†å¤‡å‘é€é‚®ä»¶
 				SimpleMailSender sender =
 					new SimpleMailSender();
 				sender.setFrom("spring_test@sina.com");
 				sender.setTo(mailTo);
-				sender.setSubject("¾ºÅÄÍ¨Öª");
+				sender.setSubject("ç«æ‹é€šçŸ¥");
 				sender.setContent("Dear "
 					+ bidUser
-					+ ", Ğ»Ğ»Äã²ÎÓë¾º¼Û£¬ÄãµÄ¾º¼ÛµÄÎïÆ·µÄÊÇ: "
+					+ ", è°¢è°¢ä½ å‚ä¸ç«ä»·ï¼Œä½ çš„ç«ä»·çš„ç‰©å“çš„æ˜¯: "
 					+ itemName);
 				sender.send();
 			}

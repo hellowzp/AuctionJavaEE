@@ -5,7 +5,7 @@ import java.util.*;
 import javax.persistence.*;
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -17,45 +17,45 @@ import javax.persistence.*;
 @Table(name="auction_user")
 public class AuctionUser implements Serializable
 {
-	//±êÊ¶ÊôĞÔ
+	//æ ‡è¯†å±æ€§
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_id")
 	private Integer id;
-	//ÓÃ»§ÃûÊôĞÔ
+	//ç”¨æˆ·åå±æ€§
 	@Column(name="username" , length=50)
 	private String username;
-	//ÃÜÂëÊôĞÔ
+	//å¯†ç å±æ€§
 	@Column(name="userpass" , length=50)
 	private String userpass;
-	//µç×ÓÓÊ¼şÊôĞÔ
+	//ç”µå­é‚®ä»¶å±æ€§
 	@Column(name="email" , length=100)
 	private String email;
 
-	/*¸ù¾İÊôÖ÷¹ØÁªµÄÎïÆ·ÊµÌå
-	  ÉèÖÃÁËmappedByÊôĞÔ±íÃ÷AuctionUserÊµÌå²»¿ØÖÆ¹ØÁª¹ØÏµ£¬
-	  Òò´Ë²»ÄÜÔö¼Ó@JoinTableºÍ@JoinColumnĞŞÊÎ*/
+	/*æ ¹æ®å±ä¸»å…³è”çš„ç‰©å“å®ä½“
+	  è®¾ç½®äº†mappedByå±æ€§è¡¨æ˜AuctionUserå®ä½“ä¸æ§åˆ¶å…³è”å…³ç³»ï¼Œ
+	  å› æ­¤ä¸èƒ½å¢åŠ @JoinTableå’Œ@JoinColumnä¿®é¥°*/
 	@OneToMany(cascade=CascadeType.ALL , mappedBy="owner"
 		, targetEntity=Item.class)
 	private Set<Item> itemsByOwner = new HashSet<Item>();
-	/*¸ù¾İÓ®È¡Õß¹ØÁªµÄÎïÆ·ÊµÌå
-	  ÉèÖÃÁËmappedByÊôĞÔ±íÃ÷AuctionUserÊµÌå²»¿ØÖÆ¹ØÁª¹ØÏµ£¬
-	  Òò´Ë²»ÄÜÔö¼Ó@JoinTableºÍ@JoinColumnĞŞÊÎ*/
+	/*æ ¹æ®èµ¢å–è€…å…³è”çš„ç‰©å“å®ä½“
+	  è®¾ç½®äº†mappedByå±æ€§è¡¨æ˜AuctionUserå®ä½“ä¸æ§åˆ¶å…³è”å…³ç³»ï¼Œ
+	  å› æ­¤ä¸èƒ½å¢åŠ @JoinTableå’Œ@JoinColumnä¿®é¥°*/
 	@OneToMany(cascade=CascadeType.ALL , mappedBy="winer"
 		, targetEntity=Item.class)
 	private Set<Item> itemsByWiner = new HashSet<Item>();
-	/*¸ÃÓÃ»§Ëù²ÎÓëµÄÈ«²¿¾º¼Û
-	  ÉèÖÃÁËmappedByÊôĞÔ±íÃ÷AuctionUserÊµÌå²»¿ØÖÆ¹ØÁª¹ØÏµ£¬
-	  Òò´Ë²»ÄÜÔö¼Ó@JoinTableºÍ@JoinColumnĞŞÊÎ*/
+	/*è¯¥ç”¨æˆ·æ‰€å‚ä¸çš„å…¨éƒ¨ç«ä»·
+	  è®¾ç½®äº†mappedByå±æ€§è¡¨æ˜AuctionUserå®ä½“ä¸æ§åˆ¶å…³è”å…³ç³»ï¼Œ
+	  å› æ­¤ä¸èƒ½å¢åŠ @JoinTableå’Œ@JoinColumnä¿®é¥°*/
 	@OneToMany(cascade=CascadeType.ALL , mappedBy="bidUser"
 		, targetEntity=Bid.class)
 	private Set<Bid> bids = new HashSet<Bid>();
 
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public AuctionUser()
 	{
 	}
-	//³õÊ¼»¯È«²¿»ù±¾ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨åŸºæœ¬å±æ€§çš„æ„é€ å™¨
 	public AuctionUser(Integer id , String username ,
 		String userpass , String email)
 	{
@@ -65,7 +65,7 @@ public class AuctionUser implements Serializable
 		this.email = email;
 	}
 
-	//idÊôĞÔµÄsetterºÍgetter·½·¨
+	//idå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(Integer id)
 	{
 		this.id = id;
@@ -75,7 +75,7 @@ public class AuctionUser implements Serializable
 		return this.id;
 	}
 
-	//usernameÊôĞÔµÄsetterºÍgetter·½·¨
+	//usernameå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setUsername(String username)
 	{
 		this.username = username;
@@ -85,7 +85,7 @@ public class AuctionUser implements Serializable
 		return this.username;
 	}
 
-	//userpassÊôĞÔµÄsetterºÍgetter·½·¨
+	//userpasså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setUserpass(String userpass)
 	{
 		this.userpass = userpass;
@@ -95,7 +95,7 @@ public class AuctionUser implements Serializable
 		return this.userpass;
 	}
 
-	//emailÊôĞÔµÄsetterºÍgetter·½·¨
+	//emailå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setEmail(String email)
 	{
 		this.email = email;
@@ -105,7 +105,7 @@ public class AuctionUser implements Serializable
 		return this.email;
 	}
 
-	//itemsByOwnerÊôĞÔµÄsetterºÍgetter·½·¨
+	//itemsByOwnerå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setItemsByOwner(Set<Item> itemsByOwner)
 	{
 		this.itemsByOwner = itemsByOwner;
@@ -115,7 +115,7 @@ public class AuctionUser implements Serializable
 		return this.itemsByOwner;
 	}
 
-	//itemsByWinerÊôĞÔµÄsetterºÍgetter·½·¨
+	//itemsByWinerå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setItemsByWiner(Set<Item> itemsByWiner)
 	{
 		this.itemsByWiner = itemsByWiner;
@@ -125,7 +125,7 @@ public class AuctionUser implements Serializable
 		return this.itemsByWiner;
 	}
 
-	//bidsÊôĞÔµÄsetterºÍgetter·½·¨
+	//bidså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setBids(Set<Bid> bids)
 	{
 		this.bids = bids;

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="GBK"?>
 
 <decorators defaultdir="/decorators">
-	<!-- ÔÚexcludesÔªËØÏÂÖ¸¶¨µÄÒ³Ãæ½«²»»áÓÉSiteMeshÀ´×°ÊÎ -->
+	<!-- åœ¨excludeså…ƒç´ ä¸‹æŒ‡å®šçš„é¡µé¢å°†ä¸ä¼šç”±SiteMeshæ¥è£…é¥° -->
 	<excludes>
 	</excludes>
-	<!-- ´´½¨Ò»¸öÃûÎªmainµÄ×°ÊÎÆ÷£¬¸Ã×°ÊÎÆ÷Ò³ÃæÎªmain.jsp,
-		 ÓÃÓÚ×°ÊÎpatternÖ¸¶¨µÄURLµÄËùÓÐÒ³Ãæ-->
+	<!-- åˆ›å»ºä¸€ä¸ªåä¸ºmainçš„è£…é¥°å™¨ï¼Œè¯¥è£…é¥°å™¨é¡µé¢ä¸ºmain.jsp,
+		 ç”¨äºŽè£…é¥°patternæŒ‡å®šçš„URLçš„æ‰€æœ‰é¡µé¢-->
 	<decorator name="main" page="main.jsp">
 		<pattern>/*</pattern>
 	</decorator>

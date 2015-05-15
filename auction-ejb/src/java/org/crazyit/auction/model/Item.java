@@ -5,7 +5,7 @@ import java.util.*;
 import javax.persistence.*;
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -17,77 +17,77 @@ import javax.persistence.*;
 @Table(name="item")
 public class Item implements Serializable
 {
-	//±êÊ¶ÊôĞÔ
+	//æ ‡è¯†å±æ€§
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="item_id")
 	private Integer id;
-	//ÎïÆ·Remark
+	//ç‰©å“Remark
 	@Column(name="item_remark" , length=255
 		, nullable=false)
 	private String itemRemark;
-	//ÎïÆ·Ãû³Æ
+	//ç‰©å“åç§°
 	@Column(name="item_name" , length=255
 		, nullable=false)
 	private String itemName;
-	//ÎïÆ·ÃèÊö
+	//ç‰©å“æè¿°
 	@Column(name="item_desc" , length=255
 		, nullable=false)
 	private String itemDesc;
-	//ÎïÆ·Ìí¼ÓÊ±¼ä
+	//ç‰©å“æ·»åŠ æ—¶é—´
 	@Column(name="addtime"
 		, nullable=false)
 	@Temporal(TemporalType.DATE)
 	private Date addtime;
-	//ÎïÆ·½áÊøÅÄÂôÊ±¼ä
+	//ç‰©å“ç»“æŸæ‹å–æ—¶é—´
 	@Column(name="endtime"
 		, nullable=false)
 	@Temporal(TemporalType.DATE)
 	private Date endtime;
-	//ÎïÆ·µÄÆğÅÄ¼Û
+	//ç‰©å“çš„èµ·æ‹ä»·
 	@Column(name="init_price"
 		, nullable=false)
 	private double initPrice;
-	//ÎïÆ·µÄ×î¸ß¼Û
+	//ç‰©å“çš„æœ€é«˜ä»·
 	@Column(name="max_price"
 		, nullable=false)
 	private double maxPrice;
-	//¸ÃÎïÆ·µÄËùÓĞÕß
+	//è¯¥ç‰©å“çš„æ‰€æœ‰è€…
 	@ManyToOne(fetch=FetchType.EAGER
 		,targetEntity=AuctionUser.class , cascade=CascadeType.ALL)
-	/* Ê¹ÓÃ@JoinColumnÀ´ÅäÖÃÍâ¼üÁĞµÄĞÅÏ¢ */
+	/* ä½¿ç”¨@JoinColumnæ¥é…ç½®å¤–é”®åˆ—çš„ä¿¡æ¯ */
 	@JoinColumn(name="owner_id", nullable=false)
 	private AuctionUser owner;
-	//¸ÃÎïÆ·ËùÊôµÄÖÖÀà
+	//è¯¥ç‰©å“æ‰€å±çš„ç§ç±»
 	@ManyToOne(fetch=FetchType.EAGER
 		,targetEntity=Kind.class , cascade=CascadeType.ALL)
-	/* Ê¹ÓÃ@JoinColumnÀ´ÅäÖÃÍâ¼üÁĞµÄĞÅÏ¢ */
+	/* ä½¿ç”¨@JoinColumnæ¥é…ç½®å¤–é”®åˆ—çš„ä¿¡æ¯ */
 	@JoinColumn(name="kind_id", nullable=false)
 	private Kind kind;
-	//¸ÃÎïÆ·µÄÓ®È¡Õß
+	//è¯¥ç‰©å“çš„èµ¢å–è€…
 	@ManyToOne(fetch=FetchType.EAGER
 		,targetEntity=AuctionUser.class , cascade=CascadeType.ALL)
-	/* Ê¹ÓÃ@JoinColumnÀ´ÅäÖÃÍâ¼üÁĞµÄĞÅÏ¢ */
+	/* ä½¿ç”¨@JoinColumnæ¥é…ç½®å¤–é”®åˆ—çš„ä¿¡æ¯ */
 	@JoinColumn(name="winer_id", nullable=true)
 	private AuctionUser winer;
-	//¸ÃÎïÆ·Ëù´¦µÄ×´Ì¬
+	//è¯¥ç‰©å“æ‰€å¤„çš„çŠ¶æ€
 	@ManyToOne(fetch=FetchType.EAGER
 		,targetEntity=State.class , cascade=CascadeType.ALL)
-	/* Ê¹ÓÃ@JoinColumnÀ´ÅäÖÃÍâ¼üÁĞµÄĞÅÏ¢ */
+	/* ä½¿ç”¨@JoinColumnæ¥é…ç½®å¤–é”®åˆ—çš„ä¿¡æ¯ */
 	@JoinColumn(name="state_id", nullable=false)
 	private State itemState;
-	/*¸ÃÎïÆ·¶ÔÓ¦µÄÈ«²¿¾º¼Û¼ÇÂ¼
-	  ÉèÖÃÁËmappedByÊôĞÔ±íÃ÷ItemÊµÌå²»¿ØÖÆ¹ØÁª¹ØÏµ£¬
-	  Òò´Ë²»ÄÜÔö¼Ó@JoinTableºÍ@JoinColumnĞŞÊÎ*/
+	/*è¯¥ç‰©å“å¯¹åº”çš„å…¨éƒ¨ç«ä»·è®°å½•
+	  è®¾ç½®äº†mappedByå±æ€§è¡¨æ˜Itemå®ä½“ä¸æ§åˆ¶å…³è”å…³ç³»ï¼Œ
+	  å› æ­¤ä¸èƒ½å¢åŠ @JoinTableå’Œ@JoinColumnä¿®é¥°*/
 	@OneToMany(cascade=CascadeType.ALL , mappedBy="bidItem"
 		, targetEntity=Bid.class)
 	private Set<Bid> bids = new HashSet<>();
 
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public Item()
 	{
 	}
-	//³õÊ¼»¯È«²¿»ù±¾ÊôĞÔµÄ¹¹ÔìÆ÷
+	//åˆå§‹åŒ–å…¨éƒ¨åŸºæœ¬å±æ€§çš„æ„é€ å™¨
 	public Item(Integer id , String itemRemark , String itemName , 
 		String itemDesc , Date addtime , Date endtime , 
 		double initPrice , double maxPrice , AuctionUser owner)
@@ -103,7 +103,7 @@ public class Item implements Serializable
 		this.owner = owner;
 	}
 
-	//idÊôĞÔµÄsetterºÍgetter·½·¨
+	//idå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setId(Integer id)
 	{
 		this.id = id;
@@ -113,7 +113,7 @@ public class Item implements Serializable
 		return this.id;
 	}
 
-	//itemRemarkÊôĞÔµÄsetterºÍgetter·½·¨
+	//itemRemarkå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setItemRemark(String itemRemark)
 	{
 		this.itemRemark = itemRemark;
@@ -123,7 +123,7 @@ public class Item implements Serializable
 		return this.itemRemark;
 	}
 
-	//itemNameÊôĞÔµÄsetterºÍgetter·½·¨
+	//itemNameå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setItemName(String itemName)
 	{
 		this.itemName = itemName;
@@ -133,7 +133,7 @@ public class Item implements Serializable
 		return this.itemName;
 	}
 
-	//itemDescÊôĞÔµÄsetterºÍgetter·½·¨
+	//itemDescå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setItemDesc(String itemDesc)
 	{
 		this.itemDesc = itemDesc;
@@ -143,7 +143,7 @@ public class Item implements Serializable
 		return this.itemDesc;
 	}
 
-	//addtimeÊôĞÔµÄsetterºÍgetter·½·¨
+	//addtimeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setAddtime(Date addtime)
 	{
 		this.addtime = addtime;
@@ -153,7 +153,7 @@ public class Item implements Serializable
 		return this.addtime;
 	}
 
-	//endtimeÊôĞÔµÄsetterºÍgetter·½·¨
+	//endtimeå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setEndtime(Date endtime)
 	{
 		this.endtime = endtime;
@@ -163,7 +163,7 @@ public class Item implements Serializable
 		return this.endtime;
 	}
 
-	//initPriceÊôĞÔµÄsetterºÍgetter·½·¨
+	//initPriceå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setInitPrice(double initPrice)
 	{
 		this.initPrice = initPrice;
@@ -173,7 +173,7 @@ public class Item implements Serializable
 		return this.initPrice;
 	}
 
-	//maxPriceÊôĞÔµÄsetterºÍgetter·½·¨
+	//maxPriceå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setMaxPrice(double maxPrice)
 	{
 		this.maxPrice = maxPrice;
@@ -183,7 +183,7 @@ public class Item implements Serializable
 		return this.maxPrice;
 	}
 
-	//ownerÊôĞÔµÄsetterºÍgetter·½·¨
+	//ownerå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setOwner(AuctionUser owner)
 	{
 		this.owner = owner;
@@ -193,7 +193,7 @@ public class Item implements Serializable
 		return this.owner;
 	}
 
-	//kindÊôĞÔµÄsetterºÍgetter·½·¨
+	//kindå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setKind(Kind kind)
 	{
 		this.kind = kind;
@@ -203,7 +203,7 @@ public class Item implements Serializable
 		return this.kind;
 	}
 
-	//winerÊôĞÔµÄsetterºÍgetter·½·¨
+	//winerå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setWiner(AuctionUser winer)
 	{
 		this.winer = winer;
@@ -213,7 +213,7 @@ public class Item implements Serializable
 		return this.winer;
 	}
 
-	//itemStateÊôĞÔµÄsetterºÍgetter·½·¨
+	//itemStateå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setItemState(State itemState)
 	{
 		this.itemState = itemState;
@@ -223,7 +223,7 @@ public class Item implements Serializable
 		return this.itemState;
 	}
 
-	//bidsÊôĞÔµÄsetterºÍgetter·½·¨
+	//bidså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setBids(Set<Bid> bids)
 	{
 		this.bids = bids;

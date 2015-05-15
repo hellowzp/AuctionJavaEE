@@ -9,7 +9,7 @@ import org.crazyit.auction.eao.*;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -23,10 +23,10 @@ public class BidEaoImpl
 {
 
 	/**
-	 * ¸ù¾İÓÃ»§²éÕÒ¾º¼Û
-	 * @param id ÓÃ»§id
-	 * @return ÓÃ»§¶ÔÓ¦µÄÈ«²¿
-	 * @return ÓÃ»§¶ÔÓ¦µÄÈ«²¿¾º¼Û
+	 * æ ¹æ®ç”¨æˆ·æŸ¥æ‰¾ç«ä»·
+	 * @param id ç”¨æˆ·id
+	 * @return ç”¨æˆ·å¯¹åº”çš„å…¨éƒ¨
+	 * @return ç”¨æˆ·å¯¹åº”çš„å…¨éƒ¨ç«ä»·
 	 */
 	public List<Bid> findByUser(Integer userId)
 	{
@@ -36,10 +36,10 @@ public class BidEaoImpl
 			, userId);
 	}
 	/**
-	 * ¸ù¾İÎïÆ·id£¬ÒÔ¼°³ö¼Û²éÑ¯ÓÃ»§
-	 * @param itemId ÎïÆ·id;
-	 * @param price ¾º¼ÛµÄ¼Û¸ñ
-	 * @return ¶ÔÖ¸¶¨ÎïÆ·¡¢Ö¸¶¨¾º¼Û¶ÔÓ¦µÄÓÃ»§
+	 * æ ¹æ®ç‰©å“idï¼Œä»¥åŠå‡ºä»·æŸ¥è¯¢ç”¨æˆ·
+	 * @param itemId ç‰©å“id;
+	 * @param price ç«ä»·çš„ä»·æ ¼
+	 * @return å¯¹æŒ‡å®šç‰©å“ã€æŒ‡å®šç«ä»·å¯¹åº”çš„ç”¨æˆ·
 	 */
 	public AuctionUser findUserByItemAndPrice(Integer itemId , Double price)
 	{
@@ -47,7 +47,7 @@ public class BidEaoImpl
 			, "where o.bidItem.id = ?1 and o.bidPrice = ?2"
 			, null
 			, itemId , price);
-		//·µ»Ø²éÑ¯µÃµ½µÄµÚÒ»¸öBid¶ÔÏó¹ØÁªµÄAuctionUser¶ÔÏó
+		//è¿”å›æŸ¥è¯¢å¾—åˆ°çš„ç¬¬ä¸€ä¸ªBidå¯¹è±¡å…³è”çš„AuctionUserå¯¹è±¡
 		if (bidList!= null && bidList.size() >= 1)
 		{
 			return bidList.get(0).getBidUser();

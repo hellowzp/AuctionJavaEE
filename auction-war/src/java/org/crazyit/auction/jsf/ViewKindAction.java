@@ -18,13 +18,13 @@ import org.crazyit.auction.model.*;
 public class ViewKindAction
 {
 	private List<Kind> kinds;
-	//ÒÀÀµ×¢ÈëÒµÎñÂß¼­×é¼ş£¨Session Bean£©
+	//ä¾èµ–æ³¨å…¥ä¸šåŠ¡é€»è¾‘ç»„ä»¶ï¼ˆSession Beanï¼‰
 	@EJB(beanName="auctionManager")
 	private AuctionManager am;
-	//kindsÊôĞÔµÄsetterºÍgetter·½·¨
+	//kindså±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setKinds(List<Kind> kinds)
 	{
-		//µ÷ÓÃÒµÎñÂß¼­·½·¨À´³õÊ¼»¯kindsÊôĞÔ
+		//è°ƒç”¨ä¸šåŠ¡é€»è¾‘æ–¹æ³•æ¥åˆå§‹åŒ–kindså±æ€§
 		this.kinds = am.getAllKind();
 	}
 	public List<Kind> getKinds()

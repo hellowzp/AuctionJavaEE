@@ -9,7 +9,7 @@ import org.crazyit.auction.exception.AuctionException;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -19,46 +19,46 @@ import org.crazyit.auction.exception.AuctionException;
  */
 public class AddBidAction
 {
-	//·â×°ÇëÇó²ÎÊıµÄÊôĞÔ
+	//å°è£…è¯·æ±‚å‚æ•°çš„å±æ€§
 	private int itemId;
 	private double bidPrice;
 	private double maxPrice;
 	private String vercode;
 	private String tipInfo;
-	//ÒÀÀµ×¢ÈëÒµÎñÂß¼­×é¼ş£¨Session Bean£©
+	//ä¾èµ–æ³¨å…¥ä¸šåŠ¡é€»è¾‘ç»„ä»¶ï¼ˆSession Beanï¼‰
 	@EJB(beanName="auctionManager")
 	private AuctionManager am;
-	//´¦ÀíÓÃ»§¾º¼Û
+	//å¤„ç†ç”¨æˆ·ç«ä»·
 	public String bidPro() throws Exception
 	{
-		//ÔÚJSFÖĞ·ÃÎÊSession·¶Î§µÄÊı¾İ
+		//åœ¨JSFä¸­è®¿é—®SessionèŒƒå›´çš„æ•°æ®
 		Map<String , Object> session = FacesContext
 			.getCurrentInstance()
 			.getExternalContext()
 			.getSessionMap();
-			//È¡³öSessionÖĞµÄuserIdºÍ¸Õ¸ÕÉú³ÉµÄËæ»úÑéÖ¤Âë
+			//å–å‡ºSessionä¸­çš„userIdå’Œåˆšåˆšç”Ÿæˆçš„éšæœºéªŒè¯ç 
 		Integer userId = (Integer)session.get("userId");
 		String ver2 = (String)session.get("rand");
 		session.put("rand" , null);
-		//Èç¹ûÓÃ»§ÊäÈëµÄÑéÖ¤ÂëºÍSessionÖĞµÄËæ»úÑéÖ¤ÂëÏàÍ¬
+		//å¦‚æœç”¨æˆ·è¾“å…¥çš„éªŒè¯ç å’ŒSessionä¸­çš„éšæœºéªŒè¯ç ç›¸åŒ
 		if (vercode.equalsIgnoreCase(ver2))
 		{
 			if(bidPrice <= getMaxPrice())
 			{
-				setTipInfo("ÄúÊäÈëµÄ¾º¼Û±ØĞë¸ßÓÚµ±Ç°×î¸ß¼Û£¡");
+				setTipInfo("æ‚¨è¾“å…¥çš„ç«ä»·å¿…é¡»é«˜äºå½“å‰æœ€é«˜ä»·ï¼");
 				return "input";
 			}
 			am.addBid(getItemId() , bidPrice ,userId);  
-			setTipInfo("¾º¼Û³É¹¦£¡");
+			setTipInfo("ç«ä»·æˆåŠŸï¼");
 			return "success";
 		}
 		else
 		{
-			setTipInfo("ÑéÖ¤Âë²»Æ¥Åä,ÇëÖØĞÂÊäÈë");
+			setTipInfo("éªŒè¯ç ä¸åŒ¹é…,è¯·é‡æ–°è¾“å…¥");
 			return "input";
 		}
 	}
-	//itemIdµÄsetterºÍgetter·½·¨
+	//itemIdçš„setterå’Œgetteræ–¹æ³•
 	public void setItemId(int itemId)
 	{
 		this.itemId = itemId;
@@ -71,7 +71,7 @@ public class AddBidAction
 			.getRequestParameterMap();
 		return Integer.parseInt(request.get("itemId"));
 	}
-	//bidPriceÊôĞÔµÄsetterºÍgetter·½·¨
+	//bidPriceå±æ€§çš„setterå’Œgetteræ–¹æ³•
 	public void setBidPrice(double bidPrice)
 	{
 		this.bidPrice = bidPrice;
@@ -80,7 +80,7 @@ public class AddBidAction
 	{
 		return this.bidPrice;
 	}
-	//maxPriceµÄsetterºÍgetter·½·¨
+	//maxPriceçš„setterå’Œgetteræ–¹æ³•
 	public void setMaxPrice(double maxPrice)
 	{
 		this.maxPrice = maxPrice;
@@ -93,7 +93,7 @@ public class AddBidAction
 			.getRequestParameterMap();
 		return Double.parseDouble(request.get("maxPrice"));
 	}
-	//vercodeµÄsetterºÍgetter·½·¨
+	//vercodeçš„setterå’Œgetteræ–¹æ³•
 	public void setVercode(String vercode)
 	{
 		this.vercode = vercode;
@@ -102,7 +102,7 @@ public class AddBidAction
 	{
 		 return this.vercode;
 	}
-	//errInfoµÄsetterºÍgetter·½·¨
+	//errInfoçš„setterå’Œgetteræ–¹æ³•
 	public void setTipInfo(String tipInfo)
 	{
 		this.tipInfo = tipInfo;

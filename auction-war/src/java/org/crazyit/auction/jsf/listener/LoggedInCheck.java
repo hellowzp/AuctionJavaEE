@@ -6,7 +6,7 @@ import javax.faces.application.*;
 
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -26,15 +26,15 @@ public class LoggedInCheck implements PhaseListener
 	public void afterPhase(PhaseEvent event)
 	{ 
 		FacesContext fc = event.getFacesContext(); 
-		//¶Ôlogin.jspÒ³Ãæ²»×ö¼ì²é
+		//å¯¹login.jspé¡µé¢ä¸åšæ£€æŸ¥
 		boolean loginPage = fc.getViewRoot()
 			.getViewId().lastIndexOf("login.jsp") 
 			> -1 ? true : false; 
-		//¶Ômain.jspÒ³Ãæ²»×ö¼ì²é
+		//å¯¹main.jspé¡µé¢ä¸åšæ£€æŸ¥
 		boolean mainPage = fc.getViewRoot()
 			.getViewId().lastIndexOf("main.jsp") 
 			> -1 ? true : false; 
-		//Ö»¶Ôºó×ºÊÇjspµÄÇëÇó½øĞĞ¼ì²é
+		//åªå¯¹åç¼€æ˜¯jspçš„è¯·æ±‚è¿›è¡Œæ£€æŸ¥
 		boolean jspSuffix = fc.getViewRoot()
 			.getViewId().lastIndexOf(".jsp") 
 			> -1 ? true : false; 
@@ -45,13 +45,13 @@ public class LoggedInCheck implements PhaseListener
 			nh.handleNavigation(fc, null, "logout"); 
 		} 
 	} 
-	//ÑéÖ¤ÊÇ·ñÒÑ¾­µÇÂ¼
+	//éªŒè¯æ˜¯å¦å·²ç»ç™»å½•
 	private boolean loggedIn(FacesContext fc) 
 	{
-		//¶ÁÈ¡sessionÖĞuserÊôĞÔ
+		//è¯»å–sessionä¸­userå±æ€§
 		Object user = fc.getExternalContext().getSessionMap()
 			.get("userId");
-		//Èç¹ûsession·¶Î§µÄuserÊôĞÔ´æÔÚ£¬¼´±íÃ÷ÓÃ»§ÒÑ¾­µÇÂ¼¡£
+		//å¦‚æœsessionèŒƒå›´çš„userå±æ€§å­˜åœ¨ï¼Œå³è¡¨æ˜ç”¨æˆ·å·²ç»ç™»å½•ã€‚
 		if (user != null
 			&& user.toString().length() > 0)
 		{

@@ -7,7 +7,7 @@ import javax.mail.internet.*;
 import javax.activation.*;
 /**
  * Description:
- * <br/>ÍøÕ¾: <a href="http://www.crazyit.org">·è¿ñJavaÁªÃË</a> 
+ * <br/>ç½‘ç«™: <a href="http://www.crazyit.org">ç–¯ç‹‚Javaè”ç›Ÿ</a> 
  * <br/>Copyright (C), 2001-2010, Yeeku.H.Lee
  * <br/>This program is protected by copyright laws.
  * <br/>Program Name:
@@ -17,33 +17,33 @@ import javax.activation.*;
  */
 public class SimpleMailSender
 {
-	//SMTP·şÎñÆ÷µØÖ·
+	//SMTPæœåŠ¡å™¨åœ°å€
 	private static final String SMTP_SERVER 
 		= "smtp.sina.com"; 
-	//µÇÂ¼SMTP·şÎñÆ÷µÄÓÃ»§ÃûÓÃ
+	//ç™»å½•SMTPæœåŠ¡å™¨çš„ç”¨æˆ·åç”¨
 	private static final String SMTP_USER 
 		= "spring_test";
-	//µÇÂ¼SMTP·şÎñÆ÷µÄÃÜÂë
+	//ç™»å½•SMTPæœåŠ¡å™¨çš„å¯†ç 
 	private static final String SMTP_PASS 
 		= "123abc";
-	//ÊÕ¼şÈËÓÊÏäµØÖ·
+	//æ”¶ä»¶äººé‚®ç®±åœ°å€
 	private String to; 
-	//·¢¼şÈËÓÊÏäµØÖ·
+	//å‘ä»¶äººé‚®ç®±åœ°å€
 	private String from; 
-	//ÓÊ¼şÖ÷Ìâ
+	//é‚®ä»¶ä¸»é¢˜
 	private String subject; 
-	//ÓÊ¼şÕıÎÄ
+	//é‚®ä»¶æ­£æ–‡
 	private String content; 
-	//ÎŞ²ÎÊıµÄ¹¹ÔìÆ÷
+	//æ— å‚æ•°çš„æ„é€ å™¨
 	public SimpleMailSender()
 	{
 	}
 	/**
-	 * ³õÊ¼»¯¸÷ÊôĞÔµÄ¹¹ÔìÆ÷
-	 * @param to Ö¸¶¨ÊÕ¼şÈËµØÖ·.
-	 * @param from Ö¸¶¨·¢¼şÈËµØÖ·.
-	 * @param subject ÓÊ¼ş±êÌâ
-	 * @param content ÓÊ¼şÄÚÈİ
+	 * åˆå§‹åŒ–å„å±æ€§çš„æ„é€ å™¨
+	 * @param to æŒ‡å®šæ”¶ä»¶äººåœ°å€.
+	 * @param from æŒ‡å®šå‘ä»¶äººåœ°å€.
+	 * @param subject é‚®ä»¶æ ‡é¢˜
+	 * @param content é‚®ä»¶å†…å®¹
 	 */
 	public SimpleMailSender(String to , String from  
 		, String subject , String content)
@@ -53,27 +53,27 @@ public class SimpleMailSender
 		this.subject = subject;
 		this.content = content;
 	}
-	//toÊôĞÔµÄsetter·½·¨
+	//toå±æ€§çš„setteræ–¹æ³•
 	public void setTo(String to)
 	{
 		this.to = to;
 	}
-	//fromÊôĞÔµÄsetter·½·¨
+	//fromå±æ€§çš„setteræ–¹æ³•
 	public void setFrom(String from)
 	{
 		this.from = from;
 	}
-	//subjectÊôĞÔµÄsetter·½·¨
+	//subjectå±æ€§çš„setteræ–¹æ³•
 	public void setSubject(String subject)
 	{
 		this.subject = subject;
 	}
-	//contentÊôĞÔµÄsetter·½·¨
+	//contentå±æ€§çš„setteræ–¹æ³•
 	public void setContent(String content)
 	{
 		this.content = content;
 	}
-	//°ÑÓÊ¼şÖ÷Ìâ×ª»»ÎªÖĞÎÄ
+	//æŠŠé‚®ä»¶ä¸»é¢˜è½¬æ¢ä¸ºä¸­æ–‡
 	public String transferChinese(String strText)
 	{
 		try
@@ -88,16 +88,16 @@ public class SimpleMailSender
 		}
 		return strText;
 	}
-	//·¢ËÍÓÊ¼ş
+	//å‘é€é‚®ä»¶
 	public boolean send()
 	{
-		//´´½¨ÓÊ¼şSessionËùĞèµÄProperties¶ÔÏó
+		//åˆ›å»ºé‚®ä»¶Sessionæ‰€éœ€çš„Propertieså¯¹è±¡
 		Properties props = new Properties();
 		props.put("mail.smtp.host" , SMTP_SERVER);
 		props.put("mail.smtp.auth" , "true");
-		//´´½¨Session¶ÔÏó
+		//åˆ›å»ºSessionå¯¹è±¡
 		Session session = Session.getDefaultInstance(props
-			//ÒÔÄäÃûÄÚ²¿ÀàµÄĞÎÊ½´´½¨µÇÂ¼·şÎñÆ÷µÄÈÏÖ¤¶ÔÏó
+			//ä»¥åŒ¿åå†…éƒ¨ç±»çš„å½¢å¼åˆ›å»ºç™»å½•æœåŠ¡å™¨çš„è®¤è¯å¯¹è±¡
 			, new Authenticator()
 			{
 				public PasswordAuthentication getPasswordAuthentication()
@@ -107,28 +107,28 @@ public class SimpleMailSender
 			});
 		try
 		{
-			//¹¹ÔìMimeMessage²¢ÉèÖÃÏà¹ØÊôĞÔÖµ
+			//æ„é€ MimeMessageå¹¶è®¾ç½®ç›¸å…³å±æ€§å€¼
 			MimeMessage msg = new MimeMessage(session);
-			//ÉèÖÃ·¢¼şÈË
+			//è®¾ç½®å‘ä»¶äºº
 			msg.setFrom(new InternetAddress(from));
-			//ÉèÖÃÊÕ¼şÈË
+			//è®¾ç½®æ”¶ä»¶äºº
 			InternetAddress[] addresses = {new InternetAddress(to)};
 			msg.setRecipients(Message.RecipientType.TO , addresses);
-			//ÉèÖÃÓÊ¼şÖ÷Ìâ
+			//è®¾ç½®é‚®ä»¶ä¸»é¢˜
 			subject = transferChinese(subject);
 			msg.setSubject(subject);	
-			//¹¹ÔìMultipart
+			//æ„é€ Multipart
 			Multipart mp = new MimeMultipart();
-			//ÏòMultipartÌí¼ÓÕıÎÄ
+			//å‘Multipartæ·»åŠ æ­£æ–‡
 			MimeBodyPart mbpContent = new MimeBodyPart();
 			mbpContent.setText(content);
-			//ÏòMimeMessageÌí¼Ó
+			//å‘MimeMessageæ·»åŠ 
 			mp.addBodyPart(mbpContent);
-			//ÏòMultipartÌí¼ÓMimeMessage
+			//å‘Multipartæ·»åŠ MimeMessage
 			msg.setContent(mp);
-			//ÉèÖÃ·¢ËÍÈÕÆÚ
+			//è®¾ç½®å‘é€æ—¥æœŸ
 			msg.setSentDate(new Date());
-			//·¢ËÍÓÊ¼ş
+			//å‘é€é‚®ä»¶
 			Transport.send(msg);
 		}
 		catch (MessagingException mex)
