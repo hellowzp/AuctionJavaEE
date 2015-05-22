@@ -340,3 +340,117 @@ com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException: Inval
 \lang1033\f0\par
 }
  
+
+
+
+
+
+Info:   Loading application auction-war done in 1,614 ms
+Info:   GlassFish Server Open Source Edition  4.1  (13) startup time : Felix (2,204ms), startup services(18,961ms), total(21,165ms)
+Severe:   ejb.stateless_ejbcreate_exception
+Warning:   A system exception occurred during an invocation on EJB auctionManager, method: public void service.impl.AuctionManagerImpl.updateWiner() throws exception.AuctionException
+Warning:   javax.ejb.EJBException: javax.ejb.EJBException: javax.ejb.CreateException: Could not create stateless EJB
+	at com.sun.ejb.containers.StatelessSessionContainer._getContext(StatelessSessionContainer.java:435)
+	at com.sun.ejb.containers.BaseContainer.getContext(BaseContainer.java:2579)
+	at com.sun.ejb.containers.BaseContainer.preInvoke(BaseContainer.java:1971)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandler.invoke(EJBLocalObjectInvocationHandler.java:210)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandlerDelegate.invoke(EJBLocalObjectInvocationHandlerDelegate.java:88)
+	at com.sun.proxy.$Proxy273.updateWiner(Unknown Source)
+	at schedule.ScheduleListener$1.run(ScheduleListener.java:41)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: javax.ejb.EJBException: javax.ejb.CreateException: Could not create stateless EJB
+	at com.sun.ejb.containers.StatelessSessionContainer$SessionContextFactory.create(StatelessSessionContainer.java:700)
+	at com.sun.ejb.containers.util.pool.NonBlockingPool.getObject(NonBlockingPool.java:246)
+	at com.sun.ejb.containers.StatelessSessionContainer._getContext(StatelessSessionContainer.java:430)
+	... 8 more
+Caused by: javax.ejb.CreateException: Could not create stateless EJB
+	at com.sun.ejb.containers.StatelessSessionContainer.createStatelessEJB(StatelessSessionContainer.java:514)
+	at com.sun.ejb.containers.StatelessSessionContainer.access$000(StatelessSessionContainer.java:97)
+	at com.sun.ejb.containers.StatelessSessionContainer$SessionContextFactory.create(StatelessSessionContainer.java:698)
+	... 10 more
+Caused by: java.lang.IllegalStateException: Exception attempting to inject Env-Prop: service.impl.AuctionManagerImpl/dest@Field-Injectable Resource. Class name = service.impl.AuctionManagerImpl Field name=dest@java.lang.String@@@ into class service.impl.AuctionManagerImpl: Can not set javax.jms.Destination field service.impl.AuctionManagerImpl.dest to com.sun.messaging.jms.ra.DirectConnectionFactory
+	at org.glassfish.weld.services.InjectionServicesImpl.aroundInject(InjectionServicesImpl.java:175)
+	at org.jboss.weld.injection.InjectionContextImpl.run(InjectionContextImpl.java:46)
+	at org.jboss.weld.injection.producer.DefaultInjector.inject(DefaultInjector.java:68)
+	at org.jboss.weld.injection.producer.StatelessSessionBeanInjector.inject(StatelessSessionBeanInjector.java:58)
+	at org.jboss.weld.injection.producer.ejb.SessionBeanInjectionTarget.inject(SessionBeanInjectionTarget.java:117)
+	at org.glassfish.weld.services.JCDIServiceImpl.injectEJBInstance(JCDIServiceImpl.java:257)
+	at com.sun.ejb.containers.BaseContainer.injectEjbInstance(BaseContainer.java:1748)
+	at com.sun.ejb.containers.StatelessSessionContainer.createStatelessEJB(StatelessSessionContainer.java:475)
+	... 12 more
+Caused by: com.sun.enterprise.container.common.spi.util.InjectionException: Exception attempting to inject Env-Prop: service.impl.AuctionManagerImpl/dest@Field-Injectable Resource. Class name = service.impl.AuctionManagerImpl Field name=dest@java.lang.String@@@ into class service.impl.AuctionManagerImpl: Can not set javax.jms.Destination field service.impl.AuctionManagerImpl.dest to com.sun.messaging.jms.ra.DirectConnectionFactory
+	at com.sun.enterprise.container.common.impl.util.InjectionManagerImpl._inject(InjectionManagerImpl.java:740)
+	at com.sun.enterprise.container.common.impl.util.InjectionManagerImpl.inject(InjectionManagerImpl.java:507)
+	at com.sun.enterprise.container.common.impl.util.InjectionManagerImpl.injectInstance(InjectionManagerImpl.java:170)
+	at org.glassfish.weld.services.InjectionServicesImpl.aroundInject(InjectionServicesImpl.java:165)
+	... 19 more
+Caused by: java.lang.IllegalArgumentException: Can not set javax.jms.Destination field service.impl.AuctionManagerImpl.dest to com.sun.messaging.jms.ra.DirectConnectionFactory
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167)
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171)
+	at sun.reflect.UnsafeObjectFieldAccessorImpl.set(UnsafeObjectFieldAccessorImpl.java:81)
+	at java.lang.reflect.Field.set(Field.java:758)
+	at com.sun.enterprise.container.common.impl.util.InjectionManagerImpl._inject(InjectionManagerImpl.java:688)
+	... 22 more
+
+Severe:   Exception in thread "Timer-2"
+Severe:   javax.ejb.EJBException: javax.ejb.EJBException: javax.ejb.CreateException: Could not create stateless EJB
+	at com.sun.ejb.containers.StatelessSessionContainer._getContext(StatelessSessionContainer.java:435)
+	at com.sun.ejb.containers.BaseContainer.getContext(BaseContainer.java:2579)
+	at com.sun.ejb.containers.BaseContainer.preInvoke(BaseContainer.java:1971)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandler.invoke(EJBLocalObjectInvocationHandler.java:210)
+	at com.sun.ejb.containers.EJBLocalObjectInvocationHandlerDelegate.invoke(EJBLocalObjectInvocationHandlerDelegate.java:88)
+	at com.sun.proxy.$Proxy273.updateWiner(Unknown Source)
+	at schedule.ScheduleListener$1.run(ScheduleListener.java:41)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+Caused by: javax.ejb.EJBException: javax.ejb.CreateException: Could not create stateless EJB
+	at com.sun.ejb.containers.StatelessSessionContainer$SessionContextFactory.create(StatelessSessionContainer.java:700)
+	at com.sun.ejb.containers.util.pool.NonBlockingPool.getObject(NonBlockingPool.java:246)
+	at com.sun.ejb.containers.StatelessSessionContainer._getContext(StatelessSessionContainer.java:430)
+	... 8 more
+Caused by: javax.ejb.CreateException: Could not create stateless EJB
+	at com.sun.ejb.containers.StatelessSessionContainer.createStatelessEJB(StatelessSessionContainer.java:514)
+	at com.sun.ejb.containers.StatelessSessionContainer.access$000(StatelessSessionContainer.java:97)
+	at com.sun.ejb.containers.StatelessSessionContainer$SessionContextFactory.create(StatelessSessionContainer.java:698)
+	... 10 more
+Caused by: java.lang.IllegalStateException: Exception attempting to inject Env-Prop: service.impl.AuctionManagerImpl/dest@Field-Injectable Resource. Class name = service.impl.AuctionManagerImpl Field name=dest@java.lang.String@@@ into class service.impl.AuctionManagerImpl: Can not set javax.jms.Destination field service.impl.AuctionManagerImpl.dest to com.sun.messaging.jms.ra.DirectConnectionFactory
+	at org.glassfish.weld.services.InjectionServicesImpl.aroundInject(InjectionServicesImpl.java:175)
+	at org.jboss.weld.injection.InjectionContextImpl.run(InjectionContextImpl.java:46)
+	at org.jboss.weld.injection.producer.DefaultInjector.inject(DefaultInjector.java:68)
+	at org.jboss.weld.injection.producer.StatelessSessionBeanInjector.inject(StatelessSessionBeanInjector.java:58)
+	at org.jboss.weld.injection.producer.ejb.SessionBeanInjectionTarget.inject(SessionBeanInjectionTarget.java:117)
+	at org.glassfish.weld.services.JCDIServiceImpl.injectEJBInstance(JCDIServiceImpl.java:257)
+	at com.sun.ejb.containers.BaseContainer.injectEjbInstance(BaseContainer.java:1748)
+	at com.sun.ejb.containers.StatelessSessionContainer.createStatelessEJB(StatelessSessionContainer.java:475)
+	... 12 more
+Caused by: com.sun.enterprise.container.common.spi.util.InjectionException: Exception attempting to inject Env-Prop: service.impl.AuctionManagerImpl/dest@Field-Injectable Resource. Class name = service.impl.AuctionManagerImpl Field name=dest@java.lang.String@@@ into class service.impl.AuctionManagerImpl: Can not set javax.jms.Destination field service.impl.AuctionManagerImpl.dest to com.sun.messaging.jms.ra.DirectConnectionFactory
+	at com.sun.enterprise.container.common.impl.util.InjectionManagerImpl._inject(InjectionManagerImpl.java:740)
+	at com.sun.enterprise.container.common.impl.util.InjectionManagerImpl.inject(InjectionManagerImpl.java:507)
+	at com.sun.enterprise.container.common.impl.util.InjectionManagerImpl.injectInstance(InjectionManagerImpl.java:170)
+	at org.glassfish.weld.services.InjectionServicesImpl.aroundInject(InjectionServicesImpl.java:165)
+	... 19 more
+Caused by: java.lang.IllegalArgumentException: Can not set javax.jms.Destination field service.impl.AuctionManagerImpl.dest to com.sun.messaging.jms.ra.DirectConnectionFactory
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167)
+	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171)
+	at sun.reflect.UnsafeObjectFieldAccessorImpl.set(UnsafeObjectFieldAccessorImpl.java:81)
+	at java.lang.reflect.Field.set(Field.java:758)
+	at com.sun.enterprise.container.common.impl.util.InjectionManagerImpl._inject(InjectionManagerImpl.java:688)
+	... 22 more
+Info:   Created HTTP listener http-listener-2 on host/port 0.0.0.0:8181
+Info:   Grizzly Framework 2.3.15 started in: 0ms - bound to [/0.0.0.0:8181]
+Info:   Created HTTP listener http-listener-1 on host/port 0.0.0.0:8080
+Info:   Grizzly Framework 2.3.15 started in: 0ms - bound to [/0.0.0.0:8080]
+Info:   Initiating Jersey application, version Jersey: 2.10.4 2014-08-08 15:09:00...
+Info:   Listening to REST requests at context: /management/domain.
+Info:   Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@1cb19dba as OSGi service registration: org.apache.felix.framework.ServiceRegistrationImpl@9255c05.
+Info:   visiting unvisited references
+Info:   visiting unvisited references
+Info:   visiting unvisited references
+Info:   visiting unvisited references
+Info:   Initializing Mojarra 2.2.7 ( 20140610-1547 https://svn.java.net/svn/mojarra~svn/tags/2.2.7@13362) for context ''
+Info:   Loading application [__admingui] at [/]
+Info:   Loading application __admingui done in 1,872 ms
+Warning:   Context path from ServletContext:  differs from path from bundle: /
+Info:   Redirecting to /
+Info:   Admin Console: Initializing Session Attributes...

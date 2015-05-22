@@ -1,33 +1,27 @@
-package mdb;
+package business;
 
 import javax.jms.*;
 import javax.ejb.*;
 
 import util.*;
 
-@MessageDriven(
-    activationConfig = {
-        /* 指定MDB所监听消息目的的类型 */
-        @ActivationConfigProperty( propertyName="destinationType",
-                propertyValue="javax.jms.Queue"), 
-        @ActivationConfigProperty( propertyName="acknowledgeMode",
-                propertyValue="Auto-acknowledge"),
-        /* 指定MDB所监听的消息目的的JNDI绑定名 */
-        @ActivationConfigProperty( propertyName="destination",
-                propertyValue="AuctionQueue")
-    }
-    /* 让MDB的Bean实现类间接地实现MessageListener接口 */
-    ,messageListenerInterface=javax.jms.MessageListener.class 
-    /* 指定MDB所监听的消息目的的JNDI绑定名 */
-    ,mappedName="AuctionQueue"
+@MessageDriven( 
+        mappedName = "jms/AuctionQueue", //JNDI name of the destination from which the bean receives messages
+        activationConfig = {
+            @ActivationConfigProperty(propertyName = "destinationType",
+                    propertyValue = "javax.jms.Queue"),
+            @ActivationConfigProperty(propertyName = "acknowledgeMode",
+                    propertyValue = "Auto-acknowledge"),
+            @ActivationConfigProperty(propertyName = "destination",
+                    propertyValue = "jms/AuctionQueue")
+        }, 
+        messageListenerInterface = javax.jms.MessageListener.class       
 )
 public class MailMDB {
 
-    //实现onMessage方法――当JMS消息被送达消息目的时，该方法被触发
     public void onMessage(Message rawMsg) {
         try {
             if (rawMsg instanceof MapMessage) {
-                //将消息强制转换为MapMessage
                 MapMessage msg = (MapMessage) rawMsg;
                 String mailTo = msg.getString("mailTo");
                 String bidUser = msg.getString("bidUser");
@@ -48,4 +42,3 @@ public class MailMDB {
         }
     }
 }
-

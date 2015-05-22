@@ -1,12 +1,12 @@
 package jsf;
 
-import domain.Item;
+import entity.Item;
 import java.util.*;
 import javax.ejb.*;
 
 import javax.faces.context.*;
 
-import service.AuctionManager;
+import business.AuctionManagerLocal;
 import exception.AuctionException;
 
 /**
@@ -26,7 +26,7 @@ public class ViewItemAction
 	private List<Item> items;
 	//依赖注入业务逻辑组件（Session Bean）
 	@EJB(beanName="auctionManager")
-	private AuctionManager am;
+	private AuctionManagerLocal am;
 	//kindId属性的setter和getter方法
 	public void setKindId(int kindId)
 	{

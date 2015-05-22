@@ -5,7 +5,7 @@
  */
 package bean;
 
-import domain.State;
+import entity.State;
 import java.util.List;
 import javax.ejb.Local;
 

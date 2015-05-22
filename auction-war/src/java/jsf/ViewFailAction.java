@@ -1,10 +1,10 @@
 package jsf;
 
-import domain.Item;
+import entity.Item;
 import java.util.*;
 import javax.ejb.*;
 
-import service.AuctionManager;
+import business.AuctionManagerLocal;
 import exception.AuctionException;
 
 /**
@@ -22,7 +22,7 @@ public class ViewFailAction
 	private List<Item> failItems;
 	//依赖注入业务逻辑组件（Session Bean）
 	@EJB(beanName="auctionManager")
-	private AuctionManager am;
+	private AuctionManagerLocal am;
 
 	//failItems属性的setter和getter方法
 	public void setFailItems(List<Item> failItems)

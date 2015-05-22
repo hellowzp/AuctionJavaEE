@@ -1,11 +1,11 @@
 package jsf;
 
-import domain.Bid;
+import entity.Bid;
 import java.util.*;
 import javax.ejb.*;
 import javax.faces.context.FacesContext;
 
-import service.AuctionManager;
+import business.AuctionManagerLocal;
 import exception.AuctionException;
 
 /**
@@ -23,7 +23,7 @@ public class ViewBidAction
 	private List<Bid> bids;
 	//依赖注入业务逻辑组件（Session Bean）
 	@EJB(beanName="auctionManager")
-	private AuctionManager am;
+	private AuctionManagerLocal am;
 	//bids属性的setter和getter方法
 	public void setBids(List<Bid> bids)
 	{

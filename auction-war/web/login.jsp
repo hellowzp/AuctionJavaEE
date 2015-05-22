@@ -1,12 +1,3 @@
-<%--
-网站: <a href="http://www.crazyit.org">疯狂Java联盟</a>
-author  yeeku.H.lee kongyeeku@163.com
-version  1.0
-Copyright (C), 2001-2010, yeeku.H.Lee
-This program is protected by copyright laws.
-Program Name:
-Date: 
---%>
 
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@taglib prefix="f" uri="http://java.sun.com/jsf/core"%>
@@ -16,7 +7,7 @@ Date:
 <f:view>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>商业拍卖Java EE程序框架</title>
+<title>Online Auction</title>
 </head>
 <body>
 <table width="780" align="center" cellspacing="0"

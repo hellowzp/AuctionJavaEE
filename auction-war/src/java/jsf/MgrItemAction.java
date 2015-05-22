@@ -1,13 +1,13 @@
 package jsf;
 
-import domain.Kind;
-import domain.Item;
+import entity.Kind;
+import entity.Item;
 import java.util.*;
 import javax.ejb.*;
 import javax.faces.context.FacesContext;
 import javax.faces.model.*;
 
-import service.AuctionManager;
+import business.AuctionManagerLocal;
 import exception.AuctionException;
 
 /**
@@ -26,7 +26,7 @@ public class MgrItemAction
 	private List<SelectItem> kinds;
 	//依赖注入业务逻辑组件（Session Bean）
 	@EJB(beanName="auctionManager")
-	private AuctionManager am;
+	private AuctionManagerLocal am;
 	//items属性的setter和getter方法
 	public void setItems(List<Item> items)
 	{

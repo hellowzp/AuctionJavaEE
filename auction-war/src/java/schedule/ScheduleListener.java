@@ -1,11 +1,11 @@
 package schedule;
 
+import business.AuctionManagerLocal;
 import javax.servlet.*;
 import java.util.*;
 
 import javax.ejb.*;
 
-import service.*;
 import exception.*;
 
 
@@ -24,7 +24,7 @@ public class ScheduleListener
 {
 	//该任务所依赖业务逻辑组件
 	@EJB(beanName="auctionManager")
-	private AuctionManager mgr;
+	private AuctionManagerLocal mgr;
 	public void contextDestroyed(ServletContextEvent sce)
 	{
 	}

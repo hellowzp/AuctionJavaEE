@@ -5,7 +5,7 @@
  */
 package bean;
 
-import domain.Kind;
+import entity.Kind;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

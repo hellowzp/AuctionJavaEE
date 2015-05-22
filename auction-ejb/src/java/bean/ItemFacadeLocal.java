@@ -5,7 +5,7 @@
  */
 package bean;
 
-import domain.Item;
+import entity.Item;
 import java.util.List;
 import javax.ejb.Local;
 
