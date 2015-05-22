@@ -15,7 +15,7 @@ import javax.ejb.*;
  * @version  1.0
  */
 @Local
-public interface AuctionUserEao 
+public interface UserEao 
 	extends Eao
 {
 	/**

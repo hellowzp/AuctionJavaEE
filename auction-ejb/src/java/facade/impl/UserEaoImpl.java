@@ -1,6 +1,6 @@
 package facade.impl;
 
-import facade.AuctionUserEao;
+import facade.UserEao;
 import domain.User;
 import java.util.*;
 
@@ -9,7 +9,7 @@ import javax.ejb.*;
 
 @Stateless(name="auctionUserEao")
 public class UserEaoImpl
-	extends CrazyItEao implements AuctionUserEao  
+	extends CrazyItEao implements UserEao  
 {
 	/**
 	 * 根据用户名，密码查找用户

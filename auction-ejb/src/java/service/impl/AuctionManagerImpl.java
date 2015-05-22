@@ -2,7 +2,7 @@ package service.impl;
 
 import facade.StateEao;
 import facade.ItemEao;
-import facade.AuctionUserEao;
+import facade.UserEao;
 import facade.BidEao;
 import facade.KindEao;
 import domain.Bid;
@@ -40,7 +40,7 @@ public class AuctionManagerImpl implements AuctionManager
 		AuctionManagerImpl.class.getName());
 	//以下是该业务逻辑组件所依赖的EAO组件
 	@EJB(beanName="auctionUserEao")
-	private AuctionUserEao userEao;
+	private UserEao userEao;
 	@EJB(beanName="bidEao")
 	private BidEao bidEao;
 	@EJB(beanName="itemEao")
