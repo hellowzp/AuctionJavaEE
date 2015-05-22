@@ -8,7 +8,7 @@ Program Name:
 Date: 
 --%>
 
-<%@ page contentType="text/html; charset=GBK" language="java" errorPage="" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorator"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/page" prefix="page"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

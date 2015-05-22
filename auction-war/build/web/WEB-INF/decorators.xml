@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="GBK"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <decorators defaultdir="/decorators">
 	<!-- 在excludes元素下指定的页面将不会由SiteMesh来装饰 -->
