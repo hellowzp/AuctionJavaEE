@@ -2,8 +2,13 @@
 .DS_Store
 
 bin/
-build/
-dist/
+
+auction-ejb/build/
+auction-ejb/dist/
+
+auction-war/build/
+
+private.xml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -14,4 +19,3 @@ dist/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/auction-war/dist/
