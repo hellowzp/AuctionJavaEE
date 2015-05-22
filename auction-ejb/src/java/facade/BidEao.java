@@ -1,7 +1,7 @@
 package facade;
 
 import domain.Bid;
-import domain.AuctionUser;
+import domain.User;
 import java.util.List;
 import javax.ejb.*;
 
@@ -34,5 +34,5 @@ public interface BidEao
 	 * @param price 竞价的价格
 	 * @return 对指定物品、指定竞价对应的用户
 	 */
-	AuctionUser findUserByItemAndPrice(Integer itemId , Double price);
+	User findUserByItemAndPrice(Integer itemId , Double price);
 }

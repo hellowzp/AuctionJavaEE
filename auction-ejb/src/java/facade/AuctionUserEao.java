@@ -1,6 +1,6 @@
 package facade;
 
-import domain.AuctionUser;
+import domain.User;
 import javax.ejb.*;
 
 
@@ -24,5 +24,5 @@ public interface AuctionUserEao
 	 * @param pass 查询所需的密码
 	 * @return 指定用户名、密码对应的用户
 	 */
-	AuctionUser findUserByNameAndPass(String username , String pass);
+	User findUserByNameAndPass(String username , String pass);
 }

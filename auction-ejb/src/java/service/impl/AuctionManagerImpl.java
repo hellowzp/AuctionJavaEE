@@ -6,7 +6,7 @@ import facade.AuctionUserEao;
 import facade.BidEao;
 import facade.KindEao;
 import domain.Bid;
-import domain.AuctionUser;
+import domain.User;
 import domain.Item;
 import domain.Kind;
 import domain.State;
@@ -99,7 +99,7 @@ public class AuctionManagerImpl implements AuctionManager
 	{
 		try
 		{
-			AuctionUser u = userEao.findUserByNameAndPass(username , pass);
+			User u = userEao.findUserByNameAndPass(username , pass);
 			if (u != null)
 			{
 				return u.getId();
@@ -183,7 +183,7 @@ public class AuctionManagerImpl implements AuctionManager
 		try
 		{
 			Kind k = kindEao.get(Kind.class , kindId);
-			AuctionUser owner = userEao.get(AuctionUser.class , userId);
+			User owner = userEao.get(User.class , userId);
 			//创建Item对象
 			Item item = new Item();
 			item.setItemName(name);
@@ -305,7 +305,7 @@ public class AuctionManagerImpl implements AuctionManager
 	{
 		try
 		{
-			AuctionUser au = userEao.get(AuctionUser.class , userId);
+			User au = userEao.get(User.class , userId);
 			Item item = itemEao.get(Item.class , itemId);
 			if (bidPrice > item.getMaxPrice())
 			{
@@ -368,7 +368,7 @@ public class AuctionManagerImpl implements AuctionManager
 				if (!item.getEndtime().after(new Date()))
 				{
 					//根据指定物品和最高竞价来查询用户
-					AuctionUser au = bidEao.findUserByItemAndPrice(
+					User au = bidEao.findUserByItemAndPrice(
 						item.getId() , item.getMaxPrice());
 					//如果该物品的最高竞价者不为null
 					if (au != null)

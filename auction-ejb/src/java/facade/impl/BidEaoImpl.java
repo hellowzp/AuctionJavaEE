@@ -2,7 +2,7 @@ package facade.impl;
 
 import facade.BidEao;
 import domain.Bid;
-import domain.AuctionUser;
+import domain.User;
 import java.util.*;
 
 import javax.ejb.*;
@@ -42,7 +42,7 @@ public class BidEaoImpl
 	 * @param price 竞价的价格
 	 * @return 对指定物品、指定竞价对应的用户
 	 */
-	public AuctionUser findUserByItemAndPrice(Integer itemId , Double price)
+	public User findUserByItemAndPrice(Integer itemId , Double price)
 	{
 		List<Bid> bidList = getResultList(Bid.class 
 			, "where o.bidItem.id = ?1 and o.bidPrice = ?2"

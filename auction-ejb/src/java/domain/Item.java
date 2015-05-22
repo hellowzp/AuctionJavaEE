@@ -54,10 +54,10 @@ public class Item implements Serializable
 	private double maxPrice;
 	//该物品的所有者
 	@ManyToOne(fetch=FetchType.EAGER
-		,targetEntity=AuctionUser.class , cascade=CascadeType.ALL)
+		,targetEntity=User.class , cascade=CascadeType.ALL)
 	/* 使用@JoinColumn来配置外键列的信息 */
 	@JoinColumn(name="owner_id", nullable=false)
-	private AuctionUser owner;
+	private User owner;
 	//该物品所属的种类
 	@ManyToOne(fetch=FetchType.EAGER
 		,targetEntity=Kind.class , cascade=CascadeType.ALL)
@@ -66,10 +66,10 @@ public class Item implements Serializable
 	private Kind kind;
 	//该物品的赢取者
 	@ManyToOne(fetch=FetchType.EAGER
-		,targetEntity=AuctionUser.class , cascade=CascadeType.ALL)
+		,targetEntity=User.class , cascade=CascadeType.ALL)
 	/* 使用@JoinColumn来配置外键列的信息 */
 	@JoinColumn(name="winer_id", nullable=true)
-	private AuctionUser winer;
+	private User winer;
 	//该物品所处的状态
 	@ManyToOne(fetch=FetchType.EAGER
 		,targetEntity=State.class , cascade=CascadeType.ALL)
@@ -90,7 +90,7 @@ public class Item implements Serializable
 	//初始化全部基本属性的构造器
 	public Item(Integer id , String itemRemark , String itemName , 
 		String itemDesc , Date addtime , Date endtime , 
-		double initPrice , double maxPrice , AuctionUser owner)
+		double initPrice , double maxPrice , User owner)
 	{
 		this.id = id;
 		this.itemRemark = itemRemark;
@@ -184,11 +184,11 @@ public class Item implements Serializable
 	}
 
 	//owner属性的setter和getter方法
-	public void setOwner(AuctionUser owner)
+	public void setOwner(User owner)
 	{
 		this.owner = owner;
 	}
-	public AuctionUser getOwner()
+	public User getOwner()
 	{
 		return this.owner;
 	}
@@ -204,11 +204,11 @@ public class Item implements Serializable
 	}
 
 	//winer属性的setter和getter方法
-	public void setWiner(AuctionUser winer)
+	public void setWiner(User winer)
 	{
 		this.winer = winer;
 	}
-	public AuctionUser getWiner()
+	public User getWiner()
 	{
 		return this.winer;
 	}

@@ -38,10 +38,10 @@ public class Bid
 	private Item bidItem;
 	//参与竞价的用户
 	@ManyToOne(fetch=FetchType.EAGER
-		,targetEntity=AuctionUser.class , cascade=CascadeType.ALL)
+		,targetEntity=User.class , cascade=CascadeType.ALL)
 	/* 使用@JoinColumn来配置外键列的信息 */
 	@JoinColumn(name="user_id", nullable=false)
-	private AuctionUser bidUser;
+	private User bidUser;
 
 
 	//无参数的构造器
@@ -97,11 +97,11 @@ public class Bid
 	}
 
 	//bidUser属性的setter和getter方法
-	public void setBidUser(AuctionUser bidUser)
+	public void setBidUser(User bidUser)
 	{
 		this.bidUser = bidUser;
 	}
-	public AuctionUser getBidUser()
+	public User getBidUser()
 	{
 		return this.bidUser;
 	}
