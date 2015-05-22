@@ -14,8 +14,6 @@ create table auction_user(
   unique(username)
 );
 
-INSERT INTO auction_user (username,userpass,email) VALUES ('tomcat','tomcat','zpkx.wang@gmail.com');
-INSERT INTO auction_user (username,userpass,email) VALUES ('mysql','mysql','spring_test@163.com');
 
 #物品种类表
 create table kind(
@@ -25,8 +23,7 @@ create table kind(
   primary key(kind_id)
 );
 
-INSERT INTO kind (kind_name,kind_desc) VALUES ('Painting','great masterpieces of famous artists');
-INSERT INTO kind (kind_name,kind_desc) VALUES ('Car','fantastic cars');
+
 
 #物品状态表
 create table state(
@@ -35,9 +32,6 @@ create table state(
   primary key(state_id)
 );
 
-INSERT INTO state (state_name) VALUES ('In progress');
-INSERT INTO state (state_name) VALUES ('Succeed');
-INSERT INTO state (state_name) VALUES ('Fail');
 
 #物品表
 create table item(
@@ -60,15 +54,6 @@ create table item(
   FOREIGN KEY(state_id) REFERENCES state(state_id)
 ); 
 
-INSERT INTO item ( item_name , item_remark , item_desc, kind_id, addtime , endtime, init_price,  max_price,  owner_id,  winer_id,  state_id)
-	VALUES ( 'aaa', 'abc', 'abcd', 1, '2009-02-06', CURDATE()+92, 230, 250, 1,  null,  1);
-
-INSERT INTO item ( item_name , item_remark , item_desc, kind_id, addtime , endtime, init_price,  max_price,  owner_id,  winer_id,  state_id)
-	VALUES ( 'bbb', 'bcd', 'good bcd', 1, '2009-10-10', CURDATE()-2, 210, 210, 2,  null,  3);
-
-INSERT INTO item ( item_name , item_remark , item_desc, kind_id, addtime , endtime, init_price,  max_price,  owner_id,  winer_id,  state_id)
-	VALUES ( 'ccc', 'bad ccc', 'old ccc', 2, '2009-12-12', CURDATE()-5, 21000, 25000, 2,  1,  2);
-
 #竞标历史表
 create table bid(
   bid_id int(11) auto_increment,
@@ -81,6 +66,30 @@ create table bid(
   FOREIGN KEY(user_id) REFERENCES auction_user(user_id), 
   FOREIGN KEY(item_id) REFERENCES item(item_id)   
 );
+
+
+INSERT INTO auction_user (username,userpass,email) VALUES ('tomcat','tomcat','zpkx.wang@gmail.com');
+INSERT INTO auction_user (username,userpass,email) VALUES ('mysql','mysql','spring_test@163.com');
+
+INSERT INTO kind (kind_name,kind_desc) VALUES ('Painting','great masterpieces of famous artists');
+INSERT INTO kind (kind_name,kind_desc) VALUES ('Car','fantastic cars');
+
+
+
+INSERT INTO state (state_name) VALUES ('In progress');
+INSERT INTO state (state_name) VALUES ('Succeed');
+INSERT INTO state (state_name) VALUES ('Fail');
+
+
+INSERT INTO item ( item_name , item_remark , item_desc, kind_id, addtime , endtime, init_price,  max_price,  owner_id,  winer_id,  state_id)
+	VALUES ( 'aaa', 'abc', 'abcd', 1, '2009-02-06', CURDATE()+92, 230, 250, 1,  null,  1);
+
+INSERT INTO item ( item_name , item_remark , item_desc, kind_id, addtime , endtime, init_price,  max_price,  owner_id,  winer_id,  state_id)
+	VALUES ( 'bbb', 'bcd', 'good bcd', 1, '2009-10-10', CURDATE()-2, 210, 210, 2,  null,  3);
+
+INSERT INTO item ( item_name , item_remark , item_desc, kind_id, addtime , endtime, init_price,  max_price,  owner_id,  winer_id,  state_id)
+	VALUES ( 'ccc', 'bad ccc', 'old ccc', 2, '2009-12-12', CURDATE()-5, 21000, 25000, 2,  1,  2);
+
 
 INSERT INTO bid ( user_id , item_id , bid_price, bid_date)
 	VALUES ( 2, 1, 250, CURDATE()-2);
