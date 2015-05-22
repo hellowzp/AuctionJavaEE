@@ -16,7 +16,7 @@ public interface AuctionManagerLocal {
 
     List<Item> getFailItems() throws AuctionException;
 
-    int validLogin(String username, String pass)
+    int validateLogin(String username, String pass)
             throws AuctionException;
 
     List<Bid> getBidByUser(Integer userId)

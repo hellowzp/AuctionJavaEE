@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.*;
 
 @Local
-public interface KindEao extends Facade {
+public interface KindFacadeLocal extends Facade {
 
     List<Kind> findAll();
 }

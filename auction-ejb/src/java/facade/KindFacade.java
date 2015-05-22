@@ -5,8 +5,8 @@ import java.util.*;
 
 import javax.ejb.*;
 
-@Stateless(name = "kindEao")
-public class KindEaoImpl extends AbstractFacade implements KindEao {
+@Stateless(name = "kindFacade")
+public class KindFacade extends AbstractFacade implements KindFacadeLocal {
 
     @Override
     public List<Kind> findAll() {

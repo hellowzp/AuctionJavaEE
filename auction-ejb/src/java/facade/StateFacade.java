@@ -5,8 +5,8 @@ import java.util.*;
 
 import javax.ejb.*;
 
-@Stateless(name = "stateEao")
-public class StateEaoImpl extends AbstractFacade implements StateEao {
+@Stateless(name = "stateFacade")
+public class StateFacade extends AbstractFacade implements StateFacadeLocal {
 
     @Override
     public List<State> findAll() {

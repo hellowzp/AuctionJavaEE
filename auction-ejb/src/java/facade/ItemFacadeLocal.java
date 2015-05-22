@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.*;
 
 @Local
-public interface ItemEao extends Facade {
+public interface ItemFacadeLocal extends Facade {
 
     List<Item> findItemByKind(Integer kindId);
 

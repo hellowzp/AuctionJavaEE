@@ -5,8 +5,8 @@ import java.util.*;
 
 import javax.ejb.*;
 
-@Stateless(name = "itemEao")
-public class ItemEaoImpl extends AbstractFacade implements ItemEao {
+@Stateless(name = "itemFacade")
+public class ItemFacade extends AbstractFacade implements ItemFacadeLocal {
 
     @Override
     public List<Item> findItemByKind(Integer kindId) {

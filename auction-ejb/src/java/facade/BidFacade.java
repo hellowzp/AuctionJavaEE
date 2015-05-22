@@ -6,8 +6,8 @@ import java.util.*;
 
 import javax.ejb.*;
 
-@Stateless(name = "bidEao")
-public class BidEaoImpl extends AbstractFacade implements BidEao {
+@Stateless(name = "bidFacade")
+public class BidFacade extends AbstractFacade implements BidFacadeLocal {
 
     @Override
     public List<Bid> findByUser(Integer userId) {

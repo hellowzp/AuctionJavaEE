@@ -21,20 +21,20 @@ public class LoginAction {
                 .getCurrentInstance()
                 .getExternalContext()
                 .getSessionMap();
+        //clear the random validation code string in the Http Session
         String ver2 = (String) session.get("rand");
-        //清空Http Session中的随机验证码字符串。
         session.put("rand", null);
         if (vercode.equalsIgnoreCase(ver2)) {
-            Integer userId = am.validLogin(username, password);
-            if (userId != null && userId > 0) {
+            int userId = am.validateLogin(username, password);
+            if (userId > 0) {
                 session.put("userId", userId);
                 return "success";
             } else {
-                setErrInfo("用户名/密码不匹配");
+                setErrInfo("The user name and the password does not match");
                 return "failure";
             }
         } else {
-            setErrInfo("验证码不匹配,请重新输入");
+            setErrInfo("wrong validation code, input again");
             return "failure";
         }
     }

@@ -1,10 +1,10 @@
 package business;
 
-import facade.StateEao;
-import facade.ItemEao;
-import facade.UserEao;
-import facade.BidEao;
-import facade.KindEao;
+import facade.StateFacadeLocal;
+import facade.ItemFacadeLocal;
+import facade.UserFacadeLocal;
+import facade.BidFacadeLocal;
+import facade.KindFacadeLocal;
 import entity.Bid;
 import entity.User;
 import entity.Item;
@@ -26,22 +26,22 @@ public class AuctionManagerBean implements AuctionManagerLocal {
 
     static Logger log = Logger.getLogger(AuctionManagerBean.class.getName());
 
-    @EJB(beanName = "userEao")
-    private UserEao userEao;
+    @EJB(beanName = "userFacade")
+    private UserFacadeLocal userFacade;
     
-    @EJB(beanName = "bidEao")
-    private BidEao bidEao;
+    @EJB(beanName = "bidFacade")
+    private BidFacadeLocal bidFacade;
     
-    @EJB(beanName = "itemEao")
-    private ItemEao itemEao;
+    @EJB(beanName = "itemFacade")
+    private ItemFacadeLocal itemFacade;
     
-    @EJB(beanName = "kindEao")
-    private KindEao kindEao;
+    @EJB(beanName = "kindFacade")
+    private KindFacadeLocal kindFacade;
     
-    @EJB(beanName = "stateEao")
-    private StateEao stateEao;
+    @EJB(beanName = "stateFacade")
+    private StateFacadeLocal stateFacade;
 
-    @Resource(mappedName = "jms/AuctionQueue")
+    @Resource(mappedName = "auction_mdb_queue")
     private Destination dest;
     
     @Resource(mappedName = "jms/AuctionConnectionFactory")
@@ -50,7 +50,7 @@ public class AuctionManagerBean implements AuctionManagerLocal {
     @Override
     public List<Item> getItemByWiner(Integer winerId) throws AuctionException {
         try {
-            return itemEao.findItemByWiner(winerId);
+            return itemFacade.findItemByWiner(winerId);
         } catch (Exception e) {
             log.debug(e.getMessage());
             throw new AuctionException("查询用户所赢取的物品出现异常,请重试");
@@ -60,7 +60,7 @@ public class AuctionManagerBean implements AuctionManagerLocal {
     @Override
     public List<Item> getFailItems() throws AuctionException {
         try {
-            return itemEao.findItemByState(3);
+            return itemFacade.findItemByState(3);
         } catch (Exception e) {
             log.debug(e.getMessage());
             throw new AuctionException("查询流拍物品出现异常,请重试");
@@ -68,23 +68,23 @@ public class AuctionManagerBean implements AuctionManagerLocal {
     }
 
     @Override
-    public int validLogin(String username, String pass) throws AuctionException {
+    public int validateLogin(String username, String pass) throws AuctionException {
         try {
-            User u = userEao.findUserByNameAndPass(username, pass);
+            User u = userFacade.findUserByNameAndPwd(username, pass);
             if (u != null) {
                 return u.getId();
             }
             return -1;
         } catch (Exception e) {
             log.debug(e.getMessage());
-            throw new AuctionException("处理用户登录出现异常,请重试");
+            throw new AuctionException("AuctionManager validate users exception");
         }
     }
 
     @Override
     public List<Bid> getBidByUser(Integer userId) throws AuctionException {
         try {
-            return bidEao.findByUser(userId);
+            return bidFacade.findByUser(userId);
         } catch (Exception e) {
             log.debug(e.getMessage());
             throw new AuctionException("浏览用户的全部竞价出现异常,请重试");
@@ -94,7 +94,7 @@ public class AuctionManagerBean implements AuctionManagerLocal {
     @Override
     public List<Item> getItemsByOwner(Integer userId) throws AuctionException {
         try {
-            return itemEao.findItemByOwner(userId);
+            return itemFacade.findItemByOwner(userId);
         } catch (Exception e) {
             log.debug(e.getMessage());
             throw new AuctionException("查询用户所有的物品出现异常,请重新");
@@ -104,7 +104,7 @@ public class AuctionManagerBean implements AuctionManagerLocal {
     @Override
     public List<Kind> getAllKind() throws AuctionException {
         try {
-            return kindEao.findAll();
+            return kindFacade.findAll();
         } catch (Exception e) {
             log.debug(e.getMessage());
             throw new AuctionException("查询全部种类出现异常,请重试");
@@ -116,8 +116,8 @@ public class AuctionManagerBean implements AuctionManagerLocal {
             double initPrice, int avail, int kindId, Integer userId)
             throws AuctionException {
         try {
-            Kind k = kindEao.get(Kind.class, kindId);
-            User owner = userEao.get(User.class, userId);
+            Kind k = kindFacade.get(Kind.class, kindId);
+            User owner = userFacade.get(User.class, userId);
 
             Item item = new Item();
             item.setItemName(name);
@@ -129,11 +129,11 @@ public class AuctionManagerBean implements AuctionManagerLocal {
             item.setEndtime(c.getTime());
             item.setInitPrice(initPrice);
             item.setMaxPrice(initPrice);
-            item.setItemState(stateEao.get(State.class, 1));
+            item.setItemState(stateFacade.get(State.class, 1));
             item.setKind(k);
             item.setOwner(owner);
 
-            itemEao.save(item);
+            itemFacade.save(item);
             return item.getId();
         } catch (Exception e) {
             log.debug(e.getMessage());
@@ -147,7 +147,7 @@ public class AuctionManagerBean implements AuctionManagerLocal {
             Kind k = new Kind();
             k.setKindName(name);
             k.setKindDesc(desc);
-            kindEao.save(k);
+            kindFacade.save(k);
             return k.getId();
         } catch (Exception e) {
             log.debug(e.getMessage());
@@ -158,7 +158,7 @@ public class AuctionManagerBean implements AuctionManagerLocal {
     @Override
     public List<Item> getItemsByKind(int kindId) throws AuctionException {
         try {
-            return itemEao.findItemByKind(kindId);
+            return itemFacade.findItemByKind(kindId);
         } catch (Exception e) {
             log.debug(e.getMessage());
             throw new AuctionException("根据种类获取物品出现异常,请重试");
@@ -168,7 +168,7 @@ public class AuctionManagerBean implements AuctionManagerLocal {
     @Override
     public String getKind(int kindId) throws AuctionException {
         try {
-            Kind k = kindEao.get(Kind.class, kindId);
+            Kind k = kindFacade.get(Kind.class, kindId);
             if (k != null) {
                 return k.getKindName();
             }
@@ -183,7 +183,7 @@ public class AuctionManagerBean implements AuctionManagerLocal {
     public Item getItem(int itemId)
             throws AuctionException {
         try {
-            return itemEao.get(Item.class, itemId);
+            return itemFacade.get(Item.class, itemId);
         } catch (Exception ex) {
             log.debug(ex.getMessage());
             throw new AuctionException("根据物品id获取物品详细信息出现异常,请重试");
@@ -194,11 +194,11 @@ public class AuctionManagerBean implements AuctionManagerLocal {
     public int addBid(int itemId, double bidPrice, Integer userId)
             throws AuctionException {
         try {
-            User au = userEao.get(User.class, userId);
-            Item item = itemEao.get(Item.class, itemId);
+            User au = userFacade.get(User.class, userId);
+            Item item = itemFacade.get(Item.class, itemId);
             if (bidPrice > item.getMaxPrice()) {
                 item.setMaxPrice(bidPrice);
-                itemEao.save(item);
+                itemFacade.save(item);
             }
 
             Bid bid = new Bid();
@@ -207,7 +207,7 @@ public class AuctionManagerBean implements AuctionManagerLocal {
             bid.setBidDate(new Date());
             bid.setBidPrice(bidPrice);
 
-            bidEao.save(bid);
+            bidFacade.save(bid);
 
             try(Connection conn = connFactory.createConnection();
                 Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE)) {
@@ -237,23 +237,23 @@ public class AuctionManagerBean implements AuctionManagerLocal {
     @Override
     public void updateWiner() throws AuctionException {
         try {
-            List<Item> itemList = itemEao.findItemByState(1);
+            List<Item> itemList = itemFacade.findItemByState(1);
             for( Item item : itemList) {
                 if (!item.getEndtime().after(new Date())) {
 
-                    User au = bidEao.findUserByItemAndPrice(
+                    User au = bidFacade.findUserByItemAndPrice(
                             item.getId(), item.getMaxPrice());
 
                     if (au != null) {
 
                         item.setWiner(au);
 
-                        item.setItemState(stateEao.get(State.class, 2));
-                        itemEao.save(item);
+                        item.setItemState(stateFacade.get(State.class, 2));
+                        itemFacade.save(item);
                     } else {
 
-                        item.setItemState(stateEao.get(State.class, 3));
-                        itemEao.save(item);
+                        item.setItemState(stateFacade.get(State.class, 3));
+                        itemFacade.save(item);
                     }
                 }
             }

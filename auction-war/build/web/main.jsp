@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JavaEE Online Auction</title>
+    <title>Online Auction</title>
     <link href="images/css.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -18,7 +18,7 @@
 <br /><br />
 <p>这仅仅是一个Java EE的框架程序。程序模拟一个简单电子拍卖站点的功能。</p>      
 <p>程序的功能不是很复杂，使用的是经典Java EE架构。技术包括：SiteMesh,JSF,Session Bean,<br />
-Message Driven Bean ,JPA ,JavaMail,整个应用使用Session Bean封装的EAO组件操作数据库,<br />
+Message Driven Bean ,JPA ,JavaMail,整个应用使用Session Bean封装的Facade组件操作数据库,<br />
 同时利用EJB 3的声明式事务。程序中的权限检查使用JSF的监听器的支持，也利用了Listener来执行任务调度<br />
 系统的邮件支持由Message Driven Bean完成，Message Driven Bean中通过JavaMail提供邮件支持。<br />
 JPA为底层的数据库访问提供支持,作为O/R Mapping框架使用。<br />

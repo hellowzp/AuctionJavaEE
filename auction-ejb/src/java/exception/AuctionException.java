@@ -6,6 +6,7 @@ import javax.ejb.*;
 public class AuctionException extends RuntimeException {
 
     public AuctionException() {
+        super();
     }
 
     public AuctionException(String message) {

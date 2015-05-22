@@ -6,14 +6,14 @@ import javax.ejb.*;
 import util.*;
 
 @MessageDriven( 
-        mappedName = "jms/AuctionQueue", //JNDI name of the destination from which the bean receives messages
+        mappedName = "auction_mdb_queue", //JNDI name of the destination from which the bean receives messages, forward slash is invalid
         activationConfig = {
             @ActivationConfigProperty(propertyName = "destinationType",
                     propertyValue = "javax.jms.Queue"),
             @ActivationConfigProperty(propertyName = "acknowledgeMode",
                     propertyValue = "Auto-acknowledge"),
             @ActivationConfigProperty(propertyName = "destination",
-                    propertyValue = "jms/AuctionQueue")
+                    propertyValue = "auction_mdb_queue")
         }, 
         messageListenerInterface = javax.jms.MessageListener.class       
 )
@@ -26,15 +26,12 @@ public class MailMDB {
                 String mailTo = msg.getString("mailTo");
                 String bidUser = msg.getString("bidUser");
                 String itemName = msg.getString("itemName");
-                //准备发送邮件
+                
                 SimpleMailSender sender = new SimpleMailSender();
-                sender.setFrom("spring_test@sina.com");
+                sender.setFrom("zpkx.wang@gmail.com");
                 sender.setTo(mailTo);
-                sender.setSubject("竞拍通知");
-                sender.setContent("Dear "
-                        + bidUser
-                        + ", 谢谢你参与竞价，你的竞价的物品的是: "
-                        + itemName);
+                sender.setSubject("Auction Mail Notification");
+                sender.setContent("Dear " + bidUser + ", thanks for bidding, your item is: " + itemName);
                 sender.send();
             }
         } catch (Exception ex) {

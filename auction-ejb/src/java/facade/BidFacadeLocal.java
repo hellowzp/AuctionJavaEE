@@ -6,7 +6,7 @@ import java.util.List;
 import javax.ejb.*;
 
 @Local
-public interface BidEao extends Facade {
+public interface BidFacadeLocal extends Facade {
 
     List<Bid> findByUser(Integer userId);
 

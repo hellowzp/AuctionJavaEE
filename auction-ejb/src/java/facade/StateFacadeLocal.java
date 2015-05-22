@@ -5,7 +5,7 @@ import java.util.List;
 import javax.ejb.*;
 
 @Local
-public interface StateEao extends Facade {
+public interface StateFacadeLocal extends Facade {
 
     List<State> findAll();
 }

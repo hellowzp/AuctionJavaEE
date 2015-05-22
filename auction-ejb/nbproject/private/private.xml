@@ -7,19 +7,19 @@
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/conf/persistence.xml</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/domain/User.java</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/domain/Kind.java</file>
-            <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/facade/Eao.java</file>
+            <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/facade/Facade.java</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/bean/KindFacadeLocal.java</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/service/impl/AuctionManagerImpl.java</file>
-            <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/facade/impl/UserEaoImpl.java</file>
+            <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/facade/impl/UserFacadeImpl.java</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/bean/ItemFacade.java</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/bean/BidFacade.java</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/domain/State.java</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/domain/Bid.java</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/mdb/MailMDB.java</file>
-            <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/facade/UserEao.java</file>
+            <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/facade/UserFacade.java</file>
             <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/domain/Item.java</file>
-            <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/facade/impl/BidEaoImpl.java</file>
-            <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/facade/impl/CrazyItEao.java</file>
+            <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/facade/impl/BidFacadeImpl.java</file>
+            <file>file:/D:/my_documents/engineering_files/NetBeans/AuctionJavaEE/auction-ejb/src/java/facade/impl/CrazyItFacade.java</file>
         </group>
     </open-files>
 </project-private>
